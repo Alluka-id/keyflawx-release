@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyflaw — Official Release</title>
+  <meta name="description" content="Download the latest official release of Keyflaw by Alluka. View version details, release date, and full changelog." />
+  <meta name="theme-color" content="#050505" />
+  <style>
+    :root {
+      --bg: #050505;
+      --surface: #0c0c0e;
+      --surface-elevated: #141418;
+      --surface-hover: #1b1b22;
+      --border: #22232b;
+      --border-strong: #2f313d;
+      --text: #f4f5f8;
+      --text-secondary: #9a9fab;
+      --text-muted: #686d7a;
+      --accent: #4169e1;
+      --accent-hover: #5379eb;
+      --accent-active: #2e52bf;
+      --accent-soft: rgba(65, 105, 225, 0.14);
+      --accent-border: rgba(65, 105, 225, 0.36);
+      --donate-soft: rgba(244, 114, 182, 0.11);
+      --donate-text: #f472b6;
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      min-height: 100%;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 16px 36px;
+      background-image:
+        radial-gradient(640px 320px at 50% -60px, rgba(65, 105, 225, 0.14), transparent 72%);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px 24px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .app-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #6b8ff7;
+    }
+
+    .brand {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #6b8ff7;
+      margin-bottom: 3px;
+    }
+
+    .app-name {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--text);
+    }
+
+    .status-pill {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      color: #7c9dfa;
+      border: 1px solid var(--accent-border);
+      white-space: nowrap;
+    }
+
+    .tagline {
+      margin-top: 14px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+
+    /* Metadata strip */
+    .meta-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .meta-item {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+    }
+
+    .meta-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Actions */
+    .actions {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: var(--radius-md);
+      font-size: 14.5px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn:active {
+      transform: scale(0.985);
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-primary:active {
+      background: var(--accent-active);
+    }
+
+    .secondary-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .btn-secondary {
+      min-height: 44px;
+      font-size: 13.5px;
+      background: var(--surface-elevated);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-strong);
+    }
+
+    .btn-telegram svg {
+      color: #38bdf8;
+    }
+
+    .btn-donate svg {
+      color: var(--donate-text);
+    }
+
+    .btn-donate:hover {
+      border-color: rgba(244, 114, 182, 0.35);
+      background: var(--donate-soft);
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 22px 0 18px;
+    }
+
+    /* Changelog */
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .changelog-count {
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .changelog-box {
+      background: #08080a;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+    }
+
+    .changelog-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .changelog-list li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: #dde1ea;
+    }
+
+    .changelog-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Note & Footer */
+    .note {
+      margin-top: 16px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .footer {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer span {
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 420px) {
+      .card {
+        padding: 22px 18px 20px;
+      }
+      .meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .meta-grid .meta-item:last-child {
+        grid-column: span 2;
+      }
+      .secondary-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="card" aria-label="Keyflaw Official Release">
+      <header class="header">
+        <div class="app-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 21 7 12 12 3 7 12 2" />
+            <polyline points="3 12 12 17 21 12" />
+            <polyline points="3 17 12 22 21 17" />
+          </svg>
+        </div>
+        <div class="brand">
+          <div class="eyebrow">Alluka · Android</div>
+          <h1 class="app-name">Keyflaw</h1>
+        </div>
+        <div class="status-pill" id="versionBadge">v1.6.0</div>
+      </header>
+
+      <p class="tagline" id="releaseMessage">
+        Motion graphics &amp; video editor for Android. Install directly over your existing version to keep all projects safe.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">Version</div>
+          <div class="meta-value" id="metaVersion">1.6.0</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Build</div>
+          <div class="meta-value" id="metaBuild">#42</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Release Date</div>
+          <div class="meta-value" id="metaDate">2026-11-19</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a id="downloadBtn" class="btn btn-primary" href="https://github.com/Alluka-id/keyflaw-release/releases/latest" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12" />
+            <path d="m7 10 5 5 5-5" />
+            <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+          </svg>
+          <span id="downloadLabel">Download APK</span>
+        </a>
+
+        <div class="secondary-row">
+          <a id="telegramBtn" class="btn btn-secondary btn-telegram" href="https://t.me/+I7QEqrwFZaJlNmQ1" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M21.94 4.66c.2-.92-.32-1.29-.92-1.06L2.95 10.57c-1.23.49-1.21 1.19-.21 1.5l4.63 1.44 10.74-6.77c.51-.31.97-.14.59.2L10 14.8l-.33 4.82c.49 0 .7-.22.97-.49l2.33-2.26 4.85 3.58c.89.49 1.53.24 1.75-.82l3.37-14.97Z" />
+            </svg>
+            <span>Telegram</span>
+          </a>
+
+          <a id="donateBtn" class="btn btn-secondary btn-donate" href="https://t.me/+I7QEqrwFZaJlNmQ1" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+            </svg>
+            <span>Donate</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-head">
+        <h2 class="section-title">What's New</h2>
+        <span class="changelog-count" id="changelogCount">11 items</span>
+      </div>
+
+      <div class="changelog-box">
+        <ul class="changelog-list" id="changelogList">
+          <li>All Keyflow features unlocked for free</li>
+          <li>Long-press to adjust motion blur per layer</li>
+          <li>Copy &amp; paste effect presets (multi-layer &amp; percentage keyframes)</li>
+          <li>Shadow &amp; Border controls for Text and Shape layers with keyframes</li>
+          <li>Effect Suites (.kfpack custom shader loader) in Settings</li>
+          <li>AE-style Easy Ease curve editor</li>
+          <li>Auto-cancel preview when moving or editing in the workspace</li>
+          <li>Smooth vertical timeline scrolling even while a layer is selected</li>
+          <li>Smart export cache: skip re-exporting when no changes were made</li>
+          <li>Keep screen awake automatically during video export</li>
+          <li>Batch font management &amp; seamless in-place updates</li>
+        </ul>
+      </div>
+
+      <p class="note">
+        Android 8.0+ · Universal APK (arm64-v8a / armeabi-v7a) · Seamless In-Place Update
+      </p>
+    </section>
+
+    <footer class="footer">
+      <span>Keyflaw</span> by Alluka · Official Distribution
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var configUrl = "./update.json?t=" + Date.now();
+      fetch(configUrl, { cache: "no-store" })
+        .then(function (res) {
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          return res.json();
+        })
+        .then(function (cfg) {
+          if (!cfg || typeof cfg !== "object") return;
+
+          var ver = cfg.latest_version || cfg.minimum_version;
+          if (ver) {
+            document.getElementById("versionBadge").textContent = "v" + ver;
+            document.getElementById("metaVersion").textContent = ver;
+            document.getElementById("downloadLabel").textContent = "Download v" + ver;
+          }
+
+          var build = cfg.latest_build || cfg.minimum_build;
+          if (build) {
+            document.getElementById("metaBuild").textContent = "#" + build;
+          }
+
+          if (cfg.release_date) {
+            document.getElementById("metaDate").textContent = cfg.release_date;
+          }
+
+          if (cfg.update_message) {
+            document.getElementById("releaseMessage").textContent = cfg.update_message;
+          }
+
+          var dlUrl = cfg.apk_url || cfg.download_url || cfg.update_url;
+          if (dlUrl) {
+            document.getElementById("downloadBtn").href = dlUrl;
+          }
+
+          if (cfg.telegram_url) {
+            document.getElementById("telegramBtn").href = cfg.telegram_url;
+          }
+
+          var donateBtn = document.getElementById("donateBtn");
+          if (cfg.donate_url) {
+            donateBtn.href = cfg.donate_url;
+          } else {
+            donateBtn.style.display = "";
+          }
+
+          if (Array.isArray(cfg.changelog) && cfg.changelog.length > 0) {
+            var list = document.getElementById("changelogList");
+            list.innerHTML = "";
+            cfg.changelog.forEach(function (item) {
+              if (!item || !String(item).trim()) return;
+              var li = document.createElement("li");
+              li.textContent = String(item).trim();
+              list.appendChild(li);
+            });
+            document.getElementById("changelogCount").textContent =
+              list.children.length + (list.children.length === 1 ? " item" : " items");
+          }
+        })
+        .catch(function () {
+          // Keep built-in fallback content visible if offline or opened locally
+        });
+    })();
+  </script>
+</body>
+</html>
