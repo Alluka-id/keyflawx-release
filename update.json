@@ -1,0 +1,28 @@
+{
+  "app_enabled": true,
+  "maintenance_mode": false,
+  "maintenance_title": "Temporarily Unavailable",
+  "maintenance_message": "Keyflaw is currently under maintenance. Please try again later.",
+  "minimum_version": "1.6.0",
+  "minimum_build": 42,
+  "latest_version": "1.6.0",
+  "latest_build": 42,
+  "release_date": "2026-11-19",
+  "update_title": "Update Required",
+  "update_message": "A newer version of Keyflaw is available with new features and improvements. Please update to continue.",
+  "changelog": [
+    "All Keyflow features unlocked for free",
+    "Long-press to adjust motion blur per layer",
+    "Copy & paste effect presets (multi-layer & percentage keyframes)",
+    "Shadow & Border controls for Text and Shape layers with keyframes",
+    "Effect Suites (.kfpack custom shader loader) in Settings",
+    "AE-style Easy Ease curve editor",
+    "Auto-cancel preview when moving or editing in the workspace",
+    "Smooth vertical timeline scrolling even while a layer is selected",
+    "Smart export cache: skip re-exporting when no changes were made",
+    "Keep screen awake automatically during video export",
+    "Batch font management & seamless in-place updates"
+  ],
+  "update_url": "https://github.com/Alluka-id/keyflaw-release/releases/latest",
+  "telegram_url": "https://t.me/+I7QEqrwFZaJlNmQ1"
+}
