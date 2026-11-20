@@ -14,7 +14,7 @@
   "update_title": "Update Available",
   "update_message": "KeyflawX 1.6.0 is available now with Pre-Render improvements, Easy Ease for Show All Layers, Pre-Export audio, and performance optimizations.",
   "changelog": [
-    "Pre-Render improvements (instant replay, full duration support, and smooth In/Out loop)",
+    "Pre-Render improvements",
     "Added Easy Ease support when selecting keyframes through Show All Layers",
     "Pre-Export preview now plays project audio in sync",
     "Fixed bounding box remaining visible when no layer is selected (1.6.0)",
