@@ -1,848 +1,1889 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="color-scheme" content="light" />
-<meta name="description" content="Download KeyflawX version 1.6.0. View the release date and full changelog for build 43." />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Cdefs%3E%3CclipPath id='c'%3E%3Ccircle cx='96' cy='96' r='96'/%3E%3C/clipPath%3E%3C/defs%3E%3Cimage href='data:image/jpeg;base64,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' width='192' height='192' clip-path='url(%23c)'/%3E%3C/svg%3E" />
-<link rel="apple-touch-icon" href="data:image/jpeg;base64,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" />
-<title>KeyflawX - Version 1.6.0</title>
-<style>
-  :root{
-    --bg:#FFFFFF;
-    --surface:#F5F6F8;
-    --stage:#0E1014;
-    --heading:#0B0D11;
-    --body:#2A2E37;
-    --secondary:#525866;
-    --border:#E2E5EB;
-    --border-strong:#14171F;
-    --cta-bg:#0B0D11;
-    --cta-hover:#1F232C;
-    --cta-active:#000000;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{min-height:100%}
-  body{
-    background:var(--bg);
-    color:var(--body);
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    line-height:1.5;
-  }
-  a[href],button{cursor:pointer}
-  .page{
-    width:100%;
-    margin:0 auto;
-    padding:36px 24px 48px;
-  }
-  .release-shell{
-    width:100%;
-    max-width:1040px;
-    margin:0 auto;
-  }
-  .top{
-    width:100%;
-    max-width:440px;
-    margin:0 auto;
-    padding:16px 16px 8px;
-    text-align:center;
-  }
-  .hero{
-    text-align:center;
-    margin-bottom:18px;
-  }
-  .hero img{
-    width:128px;
-    height:128px;
-    display:block;
-    margin:0 auto;
-    border-radius:28px;
-    border:1px solid rgba(11,13,17,.14);
-    box-shadow:0 12px 28px rgba(11,13,17,.14);
-  }
-  .hero h1{
-    margin-top:16px;
-    font-size:30px;
-    font-weight:700;
-    letter-spacing:-.025em;
-    color:var(--heading);
-    line-height:1.18;
-  }
-  .package{
-    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    font-size:13.5px;
-    font-weight:500;
-    letter-spacing:.01em;
-    color:var(--secondary);
-    line-height:1.4;
-    word-break:break-all;
-  }
-  .version{
-    margin-top:12px;
-    font-size:22px;
-    font-weight:600;
-    letter-spacing:-.02em;
-    color:var(--heading);
-    line-height:1.25;
-  }
-  .release-date{
-    margin-top:6px;
-    font-size:14px;
-    color:var(--secondary);
-  }
-  .actions{
-    margin-top:26px;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-  }
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    width:100%;
-    min-height:52px;
-    padding:12px 20px;
-    border-radius:14px;
-    font-size:15px;
-    font-weight:600;
-    text-decoration:none;
-    text-align:center;
-    -webkit-tap-highlight-color:transparent;
-    transition:background-color .15s ease,border-color .15s ease,transform .12s ease;
-  }
-  .btn:active{transform:scale(.99)}
-  .btn:focus-visible{
-    outline:3px solid var(--heading);
-    outline-offset:3px;
-  }
-  .btn svg{width:18px;height:18px;flex-shrink:0}
-  .btn-primary{
-    background:var(--cta-bg);
-    color:#FFFFFF;
-    border:1.5px solid var(--cta-bg);
-  }
-  .btn-primary:hover{background:var(--cta-hover);border-color:var(--cta-hover)}
-  .btn-primary:active{background:var(--cta-active);border-color:var(--cta-active)}
-  .btn-size{font-size:13px;font-weight:500;opacity:.88;white-space:nowrap}
-  .btn-secondary{
-    background:#FFFFFF;
-    color:var(--heading);
-    border:1.5px solid var(--border-strong);
-  }
-  .btn-secondary:hover{background:var(--surface)}
-  .btn-secondary:active{background:#EAECEF}
-  .btn-secondary svg{color:var(--heading)}
-  .divider{
-    height:1px;
-    background:var(--border);
-    border:0;
-    margin:36px 0 28px;
-  }
-  .section-bar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    margin-bottom:20px;
-  }
-  .section-bar h2{
-    font-size:20px;
-    font-weight:700;
-    letter-spacing:-.02em;
-    color:var(--heading);
-  }
-  .motion-toggle{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    min-height:44px;
-    padding:8px 14px;
-    border-radius:10px;
-    border:1px solid var(--border);
-    border:1px solid #767D8C;
-    background:#FFFFFF;
-    color:var(--body);
-    font-size:13px;
-    font-weight:600;
-    transition:background-color .15s ease,border-color .15s ease;
-    transition:background-color .15s ease,border-color .15s ease,color .15s ease,transform .12s ease;
-  }
-  .motion-toggle:hover{background:var(--surface);border-color:#B7BDC9}
-  .motion-toggle:hover{background:var(--surface);border-color:var(--border-strong)}
-  .motion-toggle:active{transform:scale(.98);background:#EAECEF}
-  .motion-toggle[aria-pressed="true"]{
-    background:var(--heading);
-    color:#FFFFFF;
-    border-color:var(--heading);
-  }
-  .motion-toggle[aria-pressed="true"]:hover{
-    background:var(--cta-hover);
-    border-color:var(--cta-hover);
-  }
-  .motion-toggle:focus-visible{outline:3px solid var(--heading);outline-offset:2px}
-  .cards-grid{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    grid-template-columns:repeat(6,minmax(0,1fr));
-    gap:18px;
-  }
-  .feature-card{
-    grid-column:span 2;
-    min-width:0;
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:14px;
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-  }
-  .feature-card--featured{
-    grid-column:span 3;
-  }
-  .stage{
-    width:100%;
-    aspect-ratio:16 / 11;
-    border-radius:13px;
-    overflow:hidden;
-    background:var(--stage);
-    border:1px solid rgba(11,13,17,.08);
-  }
-  .stage svg{
-    width:100%;
-    height:100%;
-    display:block;
-  }
-  .card-meta{
-    padding:2px 4px 4px;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-  }
-  .card-head{
-    display:flex;
-    align-items:baseline;
-    gap:8px;
-  }
-  .card-num{
-    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-    font-size:12px;
-    font-weight:700;
-    color:var(--secondary);
-    letter-spacing:.02em;
-    flex-shrink:0;
-  }
-  .feature-card h3{
-    font-size:16px;
-    font-weight:700;
-    letter-spacing:-.015em;
-    color:var(--heading);
-    line-height:1.28;
-  }
-  .feature-card p{
-    font-size:13.5px;
-    color:var(--secondary);
-    line-height:1.45;
-  }
-  .page-footer{
-    margin-top:36px;
-    padding-top:20px;
-    border-top:1px solid var(--border);
-    text-align:center;
-    font-size:13px;
-    color:var(--secondary);
-  }
-
-  /* Card 1: Layer eye icon selection outline */
-  /* Card 1: Spiral Pick Whip layer linking */
-  .anim-whip-rope{
-    stroke-dasharray:190;
-    stroke-dashoffset:190;
-    animation:kfWhipRope 4.2s ease-in-out infinite;
-  }
-  .anim-whip-target{animation:kfWhipTarget 4.2s ease-in-out infinite}
-  .anim-whip-pill{animation:kfWhipPill 4.2s ease-in-out infinite}
-  .anim-whip-linked{animation:kfWhipLinked 4.2s ease-in-out infinite}
-  .anim-whip-src{animation:kfWhipSrc 4.2s ease-in-out infinite}
-  @keyframes kfWhipRope{
-    0%,12%{stroke-dashoffset:190;opacity:0}
-    16%{stroke-dashoffset:190;opacity:1}
-    46%,60%{stroke-dashoffset:0;opacity:1}
-    70%,100%{stroke-dashoffset:0;opacity:0}
-  }
-  @keyframes kfWhipTarget{
-    0%,36%{opacity:0}
-    46%,62%{opacity:1}
-    72%,100%{opacity:0}
-  }
-  @keyframes kfWhipPill{
-    0%,38%{opacity:0;transform:translateY(4px)}
-    48%,62%{opacity:1;transform:translateY(0)}
-    72%,100%{opacity:0;transform:translateY(-2px)}
-  }
-  @keyframes kfWhipLinked{
-    0%,54%{opacity:0}
-    64%,90%{opacity:1}
-    97%,100%{opacity:0}
-  }
-  @keyframes kfWhipSrc{
-    0%,12%{stroke-opacity:.55}
-    18%,64%{stroke-opacity:1}
-    74%,100%{stroke-opacity:.85}
-  }
-
-  /* Card 2: Motion Blur fix (blur strength isolated from layer properties) */
-  .anim-mb-main{animation:kfMbMain 3.4s ease-in-out infinite}
-  .anim-mb-t1{animation:kfMbT1 3.4s ease-in-out infinite}
-  .anim-mb-t2{animation:kfMbT2 3.4s ease-in-out infinite}
-  .anim-mb-t3{animation:kfMbT3 3.4s ease-in-out infinite}
-  .anim-mb-knob{animation:kfMbKnob 3.4s ease-in-out infinite}
-  @keyframes kfMbMain{
-    0%,10%{transform:translateX(0)}
-    50%,60%{transform:translateX(124px)}
-    95%,100%{transform:translateX(0)}
-  }
-  @keyframes kfMbT1{
-    0%,10%{transform:translateX(0);opacity:0}
-    28%{transform:translateX(44px);opacity:.38}
-    50%,60%{transform:translateX(124px);opacity:0}
-    78%{transform:translateX(80px);opacity:.38}
-    95%,100%{transform:translateX(0);opacity:0}
-  }
-  @keyframes kfMbT2{
-    0%,10%{transform:translateX(0);opacity:0}
-    28%{transform:translateX(30px);opacity:.22}
-    50%,60%{transform:translateX(124px);opacity:0}
-    78%{transform:translateX(94px);opacity:.22}
-    95%,100%{transform:translateX(0);opacity:0}
-  }
-  @keyframes kfMbT3{
-    0%,10%{transform:translateX(0);opacity:0}
-    28%{transform:translateX(16px);opacity:.12}
-    50%,60%{transform:translateX(124px);opacity:0}
-    78%{transform:translateX(108px);opacity:.12}
-    95%,100%{transform:translateX(0);opacity:0}
-  }
-  @keyframes kfMbKnob{
-    0%,10%{transform:translateX(0)}
-    30%,50%{transform:translateX(26px)}
-    75%,100%{transform:translateX(0)}
-  }
-
-  /* Card 3: Layer eye icon selection outline */
-  .anim-sel-r1{animation:kfSelR1 3.6s ease-in-out infinite}
-  .anim-sel-r2{animation:kfSelR2 3.6s ease-in-out infinite}
-  .anim-sel-r3{animation:kfSelR3 3.6s ease-in-out infinite}
-  @keyframes kfSelR1{
-    0%,28%{stroke-opacity:1}
-    34%,94%{stroke-opacity:0}
-    100%{stroke-opacity:1}
-  }
-  @keyframes kfSelR2{
-    0%,28%{stroke-opacity:0}
-    34%,62%{stroke-opacity:1}
-    68%,100%{stroke-opacity:0}
-  }
-  @keyframes kfSelR3{
-    0%,62%{stroke-opacity:0}
-    68%,94%{stroke-opacity:1}
-    100%{stroke-opacity:0}
-  }
-
-  /* Card 2: Clean camera cut with Motion Blur */
-  /* Card 4: Clean camera cut with Motion Blur */
-  .anim-cut-head{animation:kfCutHead 3.6s linear infinite}
-  .anim-cut-cam2{animation:kfCutCam2 3.6s linear infinite}
-  .anim-cut-cam3{animation:kfCutCam3 3.6s linear infinite}
-  @keyframes kfCutHead{
-    0%{transform:translateX(0)}
-    86%{transform:translateX(244px)}
-    100%{transform:translateX(244px)}
-  }
-  @keyframes kfCutCam2{
-    0%,42%{opacity:1}
-    43%,100%{opacity:0}
-  }
-  @keyframes kfCutCam3{
-    0%,42%{opacity:0}
-    43%,100%{opacity:1}
-  }
-
-  /* Card 3: Restored KeyflawX tools & smooth playback */
-  /* Card 5: Restored KeyflawX tools & smooth playback */
-  .anim-playhead{animation:kfPlayhead 3.2s linear infinite}
-  .anim-preview-obj{animation:kfPreviewObj 3.2s ease-in-out infinite}
-  .anim-step-pulse{animation:kfStepPulse 1.6s ease-in-out infinite}
-  @keyframes kfPlayhead{
-    0%{transform:translateX(0)}
-    85%{transform:translateX(244px)}
-    100%{transform:translateX(0)}
-  }
-  @keyframes kfPreviewObj{
-    0%{transform:translate(0,0) scale(1)}
-    42%{transform:translate(68px,-6px) scale(1.05)}
-    85%{transform:translate(132px,4px) scale(1)}
-    100%{transform:translate(0,0) scale(1)}
-  }
-  @keyframes kfStepPulse{
-    0%,100%{stroke-opacity:.45}
-    50%{stroke-opacity:1}
-  }
-
-  body.motion-paused .stage *{
-    animation-play-state:paused !important;
-  }
-  @media (prefers-reduced-motion:reduce){
-    .stage *{
-      animation:none !important;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <meta name="description"
+    content="Download KeyflawX version 1.6.0. View the release date and full changelog for build 43." />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Cdefs%3E%3CclipPath id='c'%3E%3Ccircle cx='96' cy='96' r='96'/%3E%3C/clipPath%3E%3C/defs%3E%3Cimage href='data:image/jpeg;base64,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' width='192' height='192' clip-path='url(%23c)'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon"
+    href="data:image/jpeg;base64,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" />
+  <title>KeyflawX - Version 1.6.0</title>
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --surface: #F5F6F8;
+      --stage: #0E1014;
+      --heading: #0B0D11;
+      --body: #2A2E37;
+      --secondary: #525866;
+      --border: #E2E5EB;
+      --border-strong: #14171F;
+      --cta-bg: #0B0D11;
+      --cta-hover: #1F232C;
+      --cta-active: #000000;
     }
-    .anim-whip-rope{stroke-dashoffset:0;opacity:1}
-    .anim-whip-target,.anim-whip-pill,.anim-whip-linked{opacity:1;transform:none}
-    .anim-whip-src{stroke-opacity:1}
-    .anim-mb-main{transform:translateX(76px)}
-    .anim-mb-t1{transform:translateX(60px);opacity:.38}
-    .anim-mb-t2{transform:translateX(44px);opacity:.22}
-    .anim-mb-t3{transform:translateX(28px);opacity:.12}
-    .anim-mb-knob{transform:translateX(14px)}
-    .anim-sel-r1,.anim-sel-r3{stroke-opacity:0}
-    .anim-sel-r2{stroke-opacity:1}
-    .anim-cut-head{transform:translateX(132px)}
-    .anim-cut-cam2{opacity:0}
-    .anim-cut-cam3{opacity:1}
-  }
-  @media (max-width:900px){
-    .cards-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .feature-card,.feature-card--featured{grid-column:span 1}
-    .feature-card--lead{
-      grid-column:1 / -1;
-      display:grid;
-      grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
-      align-items:center;
-      gap:18px;
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
     }
-  }
-  @media (max-width:520px){
-    .page{padding:22px 16px 36px}
-    .top{padding:8px 8px 4px}
-    .hero img{width:112px;height:112px;border-radius:24px}
-    .hero h1{font-size:27px}
-    .version{font-size:20px}
-    .section-bar{flex-wrap:wrap}
-    .cards-grid{grid-template-columns:1fr;gap:14px}
-    .feature-card,.feature-card--featured,.feature-card--lead{
-      grid-column:auto;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
+
+    html,
+    body {
+      min-height: 100%
     }
-  }
-</style>
+
+    body {
+      background: var(--bg);
+      color: var(--body);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+    }
+
+    a[href],
+    button {
+      cursor: pointer
+    }
+
+    .page {
+      width: 100%;
+      margin: 0 auto;
+      padding: 36px 24px 48px;
+    }
+
+    .release-shell {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .top {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 16px 16px 8px;
+      text-align: center;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .hero img {
+      width: 128px;
+      height: 128px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 28px;
+      border: 1px solid rgba(11, 13, 17, .14);
+      box-shadow: 0 12px 28px rgba(11, 13, 17, .14);
+    }
+
+    .hero h1 {
+      margin-top: 16px;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -.025em;
+      color: var(--heading);
+      line-height: 1.18;
+    }
+
+    .package {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: .01em;
+      color: var(--secondary);
+      line-height: 1.4;
+      word-break: break-all;
+    }
+
+    .version {
+      margin-top: 12px;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -.02em;
+      color: var(--heading);
+      line-height: 1.25;
+    }
+
+    .release-date {
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--secondary);
+    }
+
+    .actions {
+      margin-top: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      min-height: 52px;
+      padding: 12px 20px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      -webkit-tap-highlight-color: transparent;
+      transition: background-color .15s ease, border-color .15s ease, transform .12s ease;
+    }
+
+    .btn:active {
+      transform: scale(.99)
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--heading);
+      outline-offset: 3px;
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0
+    }
+
+    .btn-primary {
+      background: var(--cta-bg);
+      color: #FFFFFF;
+      border: 1.5px solid var(--cta-bg);
+    }
+
+    .btn-primary:hover {
+      background: var(--cta-hover);
+      border-color: var(--cta-hover)
+    }
+
+    .btn-primary:active {
+      background: var(--cta-active);
+      border-color: var(--cta-active)
+    }
+
+    .btn-size {
+      font-size: 13px;
+      font-weight: 500;
+      opacity: .88;
+      white-space: nowrap
+    }
+
+    .btn-secondary {
+      background: #FFFFFF;
+      color: var(--heading);
+      border: 1.5px solid var(--border-strong);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface)
+    }
+
+    .btn-secondary:active {
+      background: #EAECEF
+    }
+
+    .btn-secondary svg {
+      color: var(--heading)
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      border: 0;
+      margin: 36px 0 28px;
+    }
+
+    .section-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .section-bar h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: var(--heading);
+    }
+
+    .motion-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 44px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      border: 1px solid #767D8C;
+      background: #FFFFFF;
+      color: var(--body);
+      font-size: 13px;
+      font-weight: 600;
+      transition: background-color .15s ease, border-color .15s ease;
+      transition: background-color .15s ease, border-color .15s ease, color .15s ease, transform .12s ease;
+    }
+
+    .motion-toggle:hover {
+      background: var(--surface);
+      border-color: #B7BDC9
+    }
+
+    .motion-toggle:hover {
+      background: var(--surface);
+      border-color: var(--border-strong)
+    }
+
+    .motion-toggle:active {
+      transform: scale(.98);
+      background: #EAECEF
+    }
+
+    .motion-toggle[aria-pressed="true"] {
+      background: var(--heading);
+      color: #FFFFFF;
+      border-color: var(--heading);
+    }
+
+    .motion-toggle[aria-pressed="true"]:hover {
+      background: var(--cta-hover);
+      border-color: var(--cta-hover);
+    }
+
+    .motion-toggle:focus-visible {
+      outline: 3px solid var(--heading);
+      outline-offset: 2px
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature-card {
+      grid-column: span 2;
+      min-width: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .feature-card--featured {
+      grid-column: span 3;
+    }
+
+    .stage {
+      width: 100%;
+      aspect-ratio: 16 / 11;
+      border-radius: 13px;
+      overflow: hidden;
+      background: var(--stage);
+      border: 1px solid rgba(11, 13, 17, .08);
+    }
+
+    .stage svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .card-meta {
+      padding: 2px 4px 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .card-head {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .card-num {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--secondary);
+      letter-spacing: .02em;
+      flex-shrink: 0;
+    }
+
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -.015em;
+      color: var(--heading);
+      line-height: 1.28;
+    }
+
+    .feature-card p {
+      font-size: 13.5px;
+      color: var(--secondary);
+      line-height: 1.45;
+    }
+
+    .page-footer {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--secondary);
+    }
+
+    /* Card 1: Layer eye icon selection outline */
+    /* Card 1: Spiral Pick Whip layer linking */
+    /* Card 1: Pink to monochrome white UI redesign */
+    .anim-theme-pink {
+      animation: kfThemePink 4s ease-in-out infinite
+    }
+
+    .anim-theme-white {
+      animation: kfThemeWhite 4s ease-in-out infinite
+    }
+
+    @keyframes kfThemePink {
+
+      0%,
+      36% {
+        opacity: 1
+      }
+
+      48%,
+      88% {
+        opacity: 0
+      }
+
+      100% {
+        opacity: 1
+      }
+    }
+
+    @keyframes kfThemeWhite {
+
+      0%,
+      36% {
+        opacity: 0
+      }
+
+      48%,
+      88% {
+        opacity: 1
+      }
+
+      100% {
+        opacity: 0
+      }
+    }
+
+    /* Card 2: Pure white default accent */
+    .anim-def-ring {
+      animation: kfDefRing 3s ease-in-out infinite
+    }
+
+    .anim-def-kf {
+      animation: kfDefKf 3s ease-in-out infinite
+    }
+
+    @keyframes kfDefRing {
+
+      0%,
+      100% {
+        stroke-opacity: .45
+      }
+
+      50% {
+        stroke-opacity: 1
+      }
+    }
+
+    @keyframes kfDefKf {
+
+      0%,
+      100% {
+        transform: translateX(0)
+      }
+
+      50% {
+        transform: translateX(48px)
+      }
+    }
+
+    /* Card 3: Primary color customization in Settings */
+    .anim-swatch-ring {
+      animation: kfSwatchRing 5s ease-in-out infinite
+    }
+
+    .anim-hue-knob {
+      animation: kfHueKnob 5s ease-in-out infinite
+    }
+
+    .anim-accent-fill {
+      animation: kfAccentFill 5s ease-in-out infinite
+    }
+
+    .anim-accent-stroke {
+      animation: kfAccentStroke 5s ease-in-out infinite
+    }
+
+    @keyframes kfSwatchRing {
+
+      0%,
+      18% {
+        transform: translateX(0)
+      }
+
+      24%,
+      38% {
+        transform: translateX(42px)
+      }
+
+      44%,
+      58% {
+        transform: translateX(84px)
+      }
+
+      64%,
+      78% {
+        transform: translateX(126px)
+      }
+
+      84%,
+      94% {
+        transform: translateX(168px)
+      }
+
+      100% {
+        transform: translateX(0)
+      }
+    }
+
+    @keyframes kfHueKnob {
+
+      0%,
+      18% {
+        transform: translateX(0)
+      }
+
+      24%,
+      38% {
+        transform: translateX(52px)
+      }
+
+      44%,
+      58% {
+        transform: translateX(104px)
+      }
+
+      64%,
+      78% {
+        transform: translateX(156px)
+      }
+
+      84%,
+      94% {
+        transform: translateX(208px)
+      }
+
+      100% {
+        transform: translateX(0)
+      }
+    }
+
+    @keyframes kfAccentFill {
+
+      0%,
+      18%,
+      100% {
+        fill: #FFFFFF
+      }
+
+      24%,
+      38% {
+        fill: #38BDF8
+      }
+
+      44%,
+      58% {
+        fill: #34D399
+      }
+
+      64%,
+      78% {
+        fill: #FBBF24
+      }
+
+      84%,
+      94% {
+        fill: #FB7185
+      }
+    }
+
+    @keyframes kfAccentStroke {
+
+      0%,
+      18%,
+      100% {
+        stroke: #FFFFFF
+      }
+
+      24%,
+      38% {
+        stroke: #38BDF8
+      }
+
+      44%,
+      58% {
+        stroke: #34D399
+      }
+
+      64%,
+      78% {
+        stroke: #FBBF24
+      }
+
+      84%,
+      94% {
+        stroke: #FB7185
+      }
+    }
+
+    /* Card 4: Spiral Pick Whip layer linking */
+    .anim-whip-rope {
+      stroke-dasharray: 190;
+      stroke-dashoffset: 190;
+      animation: kfWhipRope 4.2s ease-in-out infinite;
+    }
+
+    .anim-whip-target {
+      animation: kfWhipTarget 4.2s ease-in-out infinite
+    }
+
+    .anim-whip-pill {
+      animation: kfWhipPill 4.2s ease-in-out infinite
+    }
+
+    .anim-whip-linked {
+      animation: kfWhipLinked 4.2s ease-in-out infinite
+    }
+
+    .anim-whip-src {
+      animation: kfWhipSrc 4.2s ease-in-out infinite
+    }
+
+    @keyframes kfWhipRope {
+
+      0%,
+      12% {
+        stroke-dashoffset: 190;
+        opacity: 0
+      }
+
+      16% {
+        stroke-dashoffset: 190;
+        opacity: 1
+      }
+
+      46%,
+      60% {
+        stroke-dashoffset: 0;
+        opacity: 1
+      }
+
+      70%,
+      100% {
+        stroke-dashoffset: 0;
+        opacity: 0
+      }
+    }
+
+    @keyframes kfWhipTarget {
+
+      0%,
+      36% {
+        opacity: 0
+      }
+
+      46%,
+      62% {
+        opacity: 1
+      }
+
+      72%,
+      100% {
+        opacity: 0
+      }
+    }
+
+    @keyframes kfWhipPill {
+
+      0%,
+      38% {
+        opacity: 0;
+        transform: translateY(4px)
+      }
+
+      48%,
+      62% {
+        opacity: 1;
+        transform: translateY(0)
+      }
+
+      72%,
+      100% {
+        opacity: 0;
+        transform: translateY(-2px)
+      }
+    }
+
+    @keyframes kfWhipLinked {
+
+      0%,
+      54% {
+        opacity: 0
+      }
+
+      64%,
+      90% {
+        opacity: 1
+      }
+
+      97%,
+      100% {
+        opacity: 0
+      }
+    }
+
+    @keyframes kfWhipSrc {
+
+      0%,
+      12% {
+        stroke-opacity: .55
+      }
+
+      18%,
+      64% {
+        stroke-opacity: 1
+      }
+
+      74%,
+      100% {
+        stroke-opacity: .85
+      }
+    }
+
+    /* Card 2: Motion Blur fix (blur strength isolated from layer properties) */
+    .anim-mb-main {
+      animation: kfMbMain 3.4s ease-in-out infinite
+    }
+
+    .anim-mb-t1 {
+      animation: kfMbT1 3.4s ease-in-out infinite
+    }
+
+    .anim-mb-t2 {
+      animation: kfMbT2 3.4s ease-in-out infinite
+    }
+
+    .anim-mb-t3 {
+      animation: kfMbT3 3.4s ease-in-out infinite
+    }
+
+    .anim-mb-knob {
+      animation: kfMbKnob 3.4s ease-in-out infinite
+    }
+
+    @keyframes kfMbMain {
+
+      0%,
+      10% {
+        transform: translateX(0)
+      }
+
+      50%,
+      60% {
+        transform: translateX(124px)
+      }
+
+      95%,
+      100% {
+        transform: translateX(0)
+      }
+    }
+
+    @keyframes kfMbT1 {
+
+      0%,
+      10% {
+        transform: translateX(0);
+        opacity: 0
+      }
+
+      28% {
+        transform: translateX(44px);
+        opacity: .38
+      }
+
+      50%,
+      60% {
+        transform: translateX(124px);
+        opacity: 0
+      }
+
+      78% {
+        transform: translateX(80px);
+        opacity: .38
+      }
+
+      95%,
+      100% {
+        transform: translateX(0);
+        opacity: 0
+      }
+    }
+
+    @keyframes kfMbT2 {
+
+      0%,
+      10% {
+        transform: translateX(0);
+        opacity: 0
+      }
+
+      28% {
+        transform: translateX(30px);
+        opacity: .22
+      }
+
+      50%,
+      60% {
+        transform: translateX(124px);
+        opacity: 0
+      }
+
+      78% {
+        transform: translateX(94px);
+        opacity: .22
+      }
+
+      95%,
+      100% {
+        transform: translateX(0);
+        opacity: 0
+      }
+    }
+
+    @keyframes kfMbT3 {
+
+      0%,
+      10% {
+        transform: translateX(0);
+        opacity: 0
+      }
+
+      28% {
+        transform: translateX(16px);
+        opacity: .12
+      }
+
+      50%,
+      60% {
+        transform: translateX(124px);
+        opacity: 0
+      }
+
+      78% {
+        transform: translateX(108px);
+        opacity: .12
+      }
+
+      95%,
+      100% {
+        transform: translateX(0);
+        opacity: 0
+      }
+    }
+
+    @keyframes kfMbKnob {
+
+      0%,
+      10% {
+        transform: translateX(0)
+      }
+
+      30%,
+      50% {
+        transform: translateX(26px)
+      }
+
+      75%,
+      100% {
+        transform: translateX(0)
+      }
+    }
+
+    /* Card 3: Layer eye icon selection outline */
+    .anim-sel-r1 {
+      animation: kfSelR1 3.6s ease-in-out infinite
+    }
+
+    .anim-sel-r2 {
+      animation: kfSelR2 3.6s ease-in-out infinite
+    }
+
+    .anim-sel-r3 {
+      animation: kfSelR3 3.6s ease-in-out infinite
+    }
+
+    @keyframes kfSelR1 {
+
+      0%,
+      28% {
+        stroke-opacity: 1
+      }
+
+      34%,
+      94% {
+        stroke-opacity: 0
+      }
+
+      100% {
+        stroke-opacity: 1
+      }
+    }
+
+    @keyframes kfSelR2 {
+
+      0%,
+      28% {
+        stroke-opacity: 0
+      }
+
+      34%,
+      62% {
+        stroke-opacity: 1
+      }
+
+      68%,
+      100% {
+        stroke-opacity: 0
+      }
+    }
+
+    @keyframes kfSelR3 {
+
+      0%,
+      62% {
+        stroke-opacity: 0
+      }
+
+      68%,
+      94% {
+        stroke-opacity: 1
+      }
+
+      100% {
+        stroke-opacity: 0
+      }
+    }
+
+    /* Card 2: Clean camera cut with Motion Blur */
+    /* Card 4: Clean camera cut with Motion Blur */
+    .anim-cut-head {
+      animation: kfCutHead 3.6s linear infinite
+    }
+
+    .anim-cut-cam2 {
+      animation: kfCutCam2 3.6s linear infinite
+    }
+
+    .anim-cut-cam3 {
+      animation: kfCutCam3 3.6s linear infinite
+    }
+
+    @keyframes kfCutHead {
+      0% {
+        transform: translateX(0)
+      }
+
+      86% {
+        transform: translateX(244px)
+      }
+
+      100% {
+        transform: translateX(244px)
+      }
+    }
+
+    @keyframes kfCutCam2 {
+
+      0%,
+      42% {
+        opacity: 1
+      }
+
+      43%,
+      100% {
+        opacity: 0
+      }
+    }
+
+    @keyframes kfCutCam3 {
+
+      0%,
+      42% {
+        opacity: 0
+      }
+
+      43%,
+      100% {
+        opacity: 1
+      }
+    }
+
+    /* Card 3: Restored KeyflawX tools & smooth playback */
+    /* Card 5: Restored KeyflawX tools & smooth playback */
+    .anim-playhead {
+      animation: kfPlayhead 3.2s linear infinite
+    }
+
+    .anim-preview-obj {
+      animation: kfPreviewObj 3.2s ease-in-out infinite
+    }
+
+    .anim-step-pulse {
+      animation: kfStepPulse 1.6s ease-in-out infinite
+    }
+
+    @keyframes kfPlayhead {
+      0% {
+        transform: translateX(0)
+      }
+
+      85% {
+        transform: translateX(244px)
+      }
+
+      100% {
+        transform: translateX(0)
+      }
+    }
+
+    @keyframes kfPreviewObj {
+      0% {
+        transform: translate(0, 0) scale(1)
+      }
+
+      42% {
+        transform: translate(68px, -6px) scale(1.05)
+      }
+
+      85% {
+        transform: translate(132px, 4px) scale(1)
+      }
+
+      100% {
+        transform: translate(0, 0) scale(1)
+      }
+    }
+
+    @keyframes kfStepPulse {
+
+      0%,
+      100% {
+        stroke-opacity: .45
+      }
+
+      50% {
+        stroke-opacity: 1
+      }
+    }
+
+    body.motion-paused .stage * {
+      animation-play-state: paused !important;
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .stage * {
+        animation: none !important;
+      }
+
+      .anim-theme-pink {
+        opacity: 0
+      }
+
+      .anim-theme-white {
+        opacity: 1
+      }
+
+      .anim-def-ring {
+        stroke-opacity: 1
+      }
+
+      .anim-def-kf {
+        transform: translateX(24px)
+      }
+
+      .anim-swatch-ring,
+      .anim-hue-knob {
+        transform: translateX(0)
+      }
+
+      .anim-accent-fill {
+        fill: #FFFFFF
+      }
+
+      .anim-accent-stroke {
+        stroke: #FFFFFF
+      }
+
+      .anim-whip-rope {
+        stroke-dashoffset: 0;
+        opacity: 1
+      }
+
+      .anim-whip-target,
+      .anim-whip-pill,
+      .anim-whip-linked {
+        opacity: 1;
+        transform: none
+      }
+
+      .anim-whip-src {
+        stroke-opacity: 1
+      }
+
+      .anim-mb-main {
+        transform: translateX(76px)
+      }
+
+      .anim-mb-t1 {
+        transform: translateX(60px);
+        opacity: .38
+      }
+
+      .anim-mb-t2 {
+        transform: translateX(44px);
+        opacity: .22
+      }
+
+      .anim-mb-t3 {
+        transform: translateX(28px);
+        opacity: .12
+      }
+
+      .anim-mb-knob {
+        transform: translateX(14px)
+      }
+
+      .anim-sel-r1,
+      .anim-sel-r3 {
+        stroke-opacity: 0
+      }
+
+      .anim-sel-r2 {
+        stroke-opacity: 1
+      }
+
+      .anim-cut-head {
+        transform: translateX(132px)
+      }
+
+      .anim-cut-cam2 {
+        opacity: 0
+      }
+
+      .anim-cut-cam3 {
+        opacity: 1
+      }
+    }
+
+    @media (max-width:900px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px
+      }
+
+      .feature-card,
+      .feature-card--featured {
+        grid-column: span 1
+      }
+
+      .feature-card--lead {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 18px;
+      }
+    }
+
+    @media (max-width:520px) {
+      .page {
+        padding: 22px 16px 36px
+      }
+
+      .top {
+        padding: 8px 8px 4px
+      }
+
+      .hero img {
+        width: 112px;
+        height: 112px;
+        border-radius: 24px
+      }
+
+      .hero h1 {
+        font-size: 27px
+      }
+
+      .version {
+        font-size: 20px
+      }
+
+      .section-bar {
+        flex-wrap: wrap
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 14px
+      }
+
+      .feature-card,
+      .feature-card--featured,
+      .feature-card--lead {
+      .feature-card--featured {
+        grid-column: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<main class="page">
-  <div class="release-shell">
-    <header class="top" aria-label="KeyflawX release overview">
-      <div class="hero">
-        <img src="data:image/jpeg;base64,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" alt="KeyflawX logo" width="128" height="128" fetchpriority="high" />
-        <h1>KeyflawX</h1>
-      </div>
+  <main class="page">
+    <div class="release-shell">
+      <header class="top" aria-label="KeyflawX release overview">
+        <div class="hero">
+          <img
+            src="data:image/jpeg;base64,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"
+            alt="KeyflawX logo" width="128" height="128" fetchpriority="high" />
+          <h1>KeyflawX</h1>
+        </div>
 
-      <p class="package">com.alluka.keyflawx</p>
-      <p class="version" id="versionLine">Version 1.6.0</p>
-      <p class="release-date" id="releaseDateLine">Release Date: 2026-11-26</p>
+        <p class="package">com.alluka.keyflawx</p>
+        <p class="version" id="versionLine">Version 1.6.0</p>
+        <p class="release-date" id="releaseDateLine">Release Date: 2026-11-26</p>
 
-      <div class="actions">
-        <a id="downloadBtn" class="btn btn-primary" href="https://github.com/Alluka-id/keyflaw-release/releases/latest/download/KeyflawX-1.6.0-universal.apk" download="KeyflawX-1.6.0-universal.apk">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
-          <span id="downloadLabel">Download APK v1.6.0</span>
-          <span id="downloadSize" class="btn-size"></span>
-        </a>
-        <a id="telegramBtn" class="btn btn-secondary" href="https://t.me/+I7QEqrwFZaJlNmQ1" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.66c.2-.92-.32-1.29-.92-1.06L2.95 10.57c-1.23.49-1.21 1.19-.21 1.5l4.63 1.44 10.74-6.77c.51-.31.97-.14.59.2L10 14.8l-.33 4.82c.49 0 .7-.22.97-.49l2.33-2.26 4.85 3.58c.89.49 1.53.24 1.75-.82l3.37-14.97Z"/></svg>
-          <span>Join Telegram Channel</span>
-        </a>
-      </div>
-    </header>
-
-    <hr class="divider" />
-
-    <section aria-labelledby="whatsNewHeading">
-      <div class="section-bar">
-        <h2 id="whatsNewHeading">What's New</h2>
-        <button type="button" id="motionToggle" class="motion-toggle" aria-pressed="false">
-          <span id="motionToggleLabel">Pause Previews</span>
-        </button>
-      </div>
-
-      <div class="cards-grid">
-        <!-- 01: Layer Eye Icon Selection Fix -->
-        <!-- 01: Spiral Pick Whip Layer Linking -->
-        <article class="feature-card feature-card--featured feature-card--lead">
-          <div class="stage" aria-hidden="true">
-            <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <path id="kfSpiralGlyph" d="M 0.00 -0.40 L 0.21 -0.50 L 0.48 -0.49 L 0.77 -0.33 L 0.98 -0.02 L 1.05 0.41 L 0.92 0.87 L 0.58 1.29 L 0.05 1.55 L -0.59 1.59 L -1.25 1.36 L -1.80 0.85 L -2.13 0.11 L -2.15 -0.75 L -1.81 -1.61 L -1.14 -2.30 L -0.19 -2.70 L 0.89 -2.71 L 1.95 -2.28 L 2.80 -1.44 L 3.28 -0.29 L 3.28 1.02 L 2.76 2.28 L 1.76 3.28 L 0.40 3.85 L -1.12 3.85 L -2.59 3.25 L -3.75 2.10 L -4.41 0.54 L -4.43 -1.21 L -3.76 -2.88 L -2.46 -4.21 L -0.70 -4.97 L 1.27 -5.01 L 3.16 -4.27 L 4.66 -2.83 L 5.53 -0.88" fill="none" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" />
-              </defs>
-
-              <!-- Header bar -->
-              <text x="30" y="37" fill="#A1A7B3" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10.5" font-weight="700" letter-spacing="0.06em">LINK MODE · PICK WHIP</text>
-              <rect x="278" y="23" width="54" height="20" rx="6" fill="#FFFFFF" />
-              <text x="305" y="36.5" text-anchor="middle" fill="#0B0D11" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">ACTIVE</text>
-
-              <!-- Parent bracket connector (Row 2 -> Row 1) -->
-              <g class="anim-whip-linked">
-                <path d="M 27 137 L 17 137 L 17 79 L 27 79" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                <circle cx="27" cy="79" r="2.6" fill="#FFFFFF" />
-              </g>
-
-              <!-- Row 1: Camera Rig (Target parent) -->
-              <rect x="30" y="56" width="302" height="46" rx="10" fill="#151820" stroke="#282D38" stroke-width="1.2" />
-              <rect class="anim-whip-target" x="30" y="56" width="302" height="46" rx="10" fill="#FFFFFF" fill-opacity=".10" stroke="#FFFFFF" stroke-width="1.7" />
-              <rect x="40" y="67" width="26" height="24" rx="6" fill="#1E222C" />
-              <ellipse cx="53" cy="79" rx="6.5" ry="4" fill="none" stroke="#D1D5DB" stroke-width="1.35" />
-              <circle cx="53" cy="79" r="1.8" fill="#D1D5DB" />
-              <rect x="72" y="67" width="24" height="24" rx="6" fill="#141416" stroke="#56565E" stroke-width="1.1" />
-              <g transform="translate(84 79)" stroke="#D1D5DB"><use href="#kfSpiralGlyph" /></g>
-              <rect x="104" y="68" width="218" height="22" rx="6" fill="#232834" />
-              <text x="114" y="83" fill="#F3F4F6" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" font-weight="600">Camera Rig</text>
-
-              <!-- Row 2: Title Text (Child layer linked via spiral) -->
-              <rect x="30" y="114" width="302" height="46" rx="10" fill="#151820" stroke="#282D38" stroke-width="1.2" />
-              <rect x="40" y="125" width="26" height="24" rx="6" fill="#1E222C" />
-              <ellipse cx="53" cy="137" rx="6.5" ry="4" fill="none" stroke="#FFFFFF" stroke-width="1.35" />
-              <circle cx="53" cy="137" r="1.8" fill="#FFFFFF" />
-              <rect class="anim-whip-src" x="72" y="125" width="24" height="24" rx="6" fill="#242936" stroke="#FFFFFF" stroke-width="1.5" />
-              <g transform="translate(84 137)" stroke="#FFFFFF"><use href="#kfSpiralGlyph" /></g>
-              <rect x="104" y="126" width="218" height="22" rx="6" fill="#232834" />
-              <text x="114" y="141" fill="#F3F4F6" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" font-weight="600">Title Text</text>
-              <!-- Linked parent badge -->
-              <g class="anim-whip-linked">
-                <rect x="234" y="128" width="84" height="18" rx="5" fill="#141416" stroke="#D1D5DB" stroke-width="1" />
-                <text x="276" y="140.5" text-anchor="middle" fill="#FFFFFF" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">&#x21B3; Camera</text>
-              </g>
-
-              <!-- Row 3: Background (Unlinked) -->
-              <rect x="30" y="172" width="302" height="46" rx="10" fill="#151820" stroke="#282D38" stroke-width="1.2" />
-              <rect x="40" y="183" width="26" height="24" rx="6" fill="#1E222C" />
-              <ellipse cx="53" cy="195" rx="6.5" ry="4" fill="none" stroke="#D1D5DB" stroke-width="1.35" />
-              <circle cx="53" cy="195" r="1.8" fill="#D1D5DB" />
-              <rect x="72" y="183" width="24" height="24" rx="6" fill="#141416" stroke="#56565E" stroke-width="1.1" />
-              <g transform="translate(84 195)" stroke="#A1A7B3"><use href="#kfSpiralGlyph" /></g>
-              <rect x="104" y="184" width="218" height="22" rx="6" fill="#232834" />
-              <text x="114" y="199" fill="#D1D5DB" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" font-weight="600">Background</text>
-
-              <!-- Pick whip drag rope -->
-              <path class="anim-whip-rope" d="M 84 137 C 138 134, 148 82, 198 79" fill="none" stroke="#0B0D11" stroke-width="4.6" stroke-linecap="round" />
-              <path class="anim-whip-rope" d="M 84 137 C 138 134, 148 82, 198 79" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" />
-              <circle class="anim-whip-target" cx="198" cy="79" r="5" fill="#0B0D11" stroke="#FFFFFF" stroke-width="2" />
-
-              <!-- Floating status pill -->
-              <g class="anim-whip-pill">
-                <rect x="176" y="42" width="144" height="24" rx="12" fill="#141418" stroke="#FFFFFF" stroke-width="1.2" />
-                <circle cx="189" cy="54" r="3" fill="#FFFFFF" />
-                <text x="198" y="57.5" fill="#FFFFFF" font-family="Helvetica Neue,Arial,sans-serif" font-size="10" font-weight="700">Title Text &#x2192; Camera Rig</text>
-              </g>
+        <div class="actions">
+          <a id="downloadBtn" class="btn btn-primary"
+            href="https://github.com/Alluka-id/keyflaw-release/releases/latest/download/KeyflawX-1.6.0-universal.apk"
+            download="KeyflawX-1.6.0-universal.apk">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3v12" />
+              <path d="m7 10 5 5 5-5" />
+              <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
             </svg>
-          </div>
-          <div class="card-meta">
-            <div class="card-head">
-              <span class="card-num">01</span>
-              <h3>Spiral Pick Whip Layer Linking</h3>
-            </div>
-            <p>Replaced layer linking with an interactive spiral pick whip next to each layer's eye icon when link mode is active. Drag onto any layer to parent, or tap to unlink.</p>
-          </div>
-        </article>
-
-        <!-- 02: Motion Blur Fix -->
-        <article class="feature-card feature-card--featured">
-          <div class="stage" aria-hidden="true">
-            <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg">
-              <!-- Preview frame -->
-              <rect x="30" y="20" width="300" height="114" rx="12" fill="#171B24" stroke="#2D3341" stroke-width="1.5" />
-              <line x1="180" y1="20" x2="180" y2="134" stroke="#232835" stroke-width="1" stroke-dasharray="4 4" />
-              <line x1="30" y1="77" x2="330" y2="77" stroke="#232835" stroke-width="1" stroke-dasharray="4 4" />
-              <text x="44" y="39" fill="#A1A7B3" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10" font-weight="700">SHUTTER 180&#x00B0; · BLUR ONLY</text>
-
-              <!-- Directional motion blur trails (uniform scale, zero distortion) -->
-              <rect class="anim-mb-t3" x="62" y="55" width="54" height="44" rx="9" fill="#FFFFFF" />
-              <rect class="anim-mb-t2" x="62" y="55" width="54" height="44" rx="9" fill="#FFFFFF" />
-              <rect class="anim-mb-t1" x="62" y="55" width="54" height="44" rx="9" fill="#FFFFFF" />
-              <g class="anim-mb-main">
-                <rect x="62" y="55" width="54" height="44" rx="9" fill="#FFFFFF" />
-                <line x1="77" y1="71" x2="101" y2="71" stroke="#0B0D11" stroke-width="2" stroke-linecap="round" />
-                <line x1="77" y1="81" x2="93" y2="81" stroke="#525866" stroke-width="2" stroke-linecap="round" />
-              </g>
-
-              <!-- Shutter strength ruler strip -->
-              <rect x="30" y="148" width="300" height="32" rx="8" fill="#151820" stroke="#282D38" stroke-width="1.2" />
-              <text x="42" y="168" fill="#D1D5DB" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10" font-weight="700">BLUR</text>
-              <line x1="92" y1="164" x2="270" y2="164" stroke="#363C4A" stroke-width="2" stroke-linecap="round" />
-              <line x1="112" y1="158" x2="112" y2="170" stroke="#525866" stroke-width="1.2" />
-              <line x1="148" y1="156" x2="148" y2="172" stroke="#6B7280" stroke-width="1.2" />
-              <line x1="184" y1="156" x2="184" y2="172" stroke="#6B7280" stroke-width="1.2" />
-              <line x1="220" y1="156" x2="220" y2="172" stroke="#6B7280" stroke-width="1.2" />
-              <line x1="256" y1="158" x2="256" y2="170" stroke="#525866" stroke-width="1.2" />
-              <g class="anim-mb-knob">
-                <rect x="171" y="154" width="12" height="20" rx="4" fill="#FFFFFF" />
-              </g>
-              <text x="318" y="168" text-anchor="end" fill="#FFFFFF" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10.5" font-weight="700">180&#x00B0;</text>
-
-              <!-- Unaffected layer properties row -->
-              <rect x="30" y="192" width="94" height="28" rx="7" fill="#151820" stroke="#2D3341" stroke-width="1.2" />
-              <text x="77" y="210" text-anchor="middle" fill="#D1D5DB" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">SCALE 100%</text>
-
-              <rect x="133" y="192" width="94" height="28" rx="7" fill="#151820" stroke="#2D3341" stroke-width="1.2" />
-              <text x="180" y="210" text-anchor="middle" fill="#D1D5DB" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">ROT 0&#x00B0;</text>
-
-              <rect x="236" y="192" width="94" height="28" rx="7" fill="#151820" stroke="#2D3341" stroke-width="1.2" />
-              <text x="283" y="210" text-anchor="middle" fill="#D1D5DB" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">ALPHA 100%</text>
+            <span id="downloadLabel">Download APK v1.6.0</span>
+            <span id="downloadSize" class="btn-size"></span>
+          </a>
+          <a id="telegramBtn" class="btn btn-secondary" href="https://t.me/+I7QEqrwFZaJlNmQ1" target="_blank"
+            rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M21.94 4.66c.2-.92-.32-1.29-.92-1.06L2.95 10.57c-1.23.49-1.21 1.19-.21 1.5l4.63 1.44 10.74-6.77c.51-.31.97-.14.59.2L10 14.8l-.33 4.82c.49 0 .7-.22.97-.49l2.33-2.26 4.85 3.58c.89.49 1.53.24 1.75-.82l3.37-14.97Z" />
             </svg>
-          </div>
-          <div class="card-meta">
-            <div class="card-head">
-              <span class="card-num">02</span>
-              <h3>Motion Blur Fix</h3>
+            <span>Join Telegram Channel</span>
+          </a>
+        </div>
+      </header>
+
+      <hr class="divider" />
+
+      <section aria-labelledby="whatsNewHeading">
+        <div class="section-bar">
+          <h2 id="whatsNewHeading">What's New</h2>
+          <button type="button" id="motionToggle" class="motion-toggle" aria-pressed="false">
+            <span id="motionToggleLabel">Pause Previews</span>
+          </button>
+        </div>
+
+        <div class="cards-grid">
+          <!-- 01: Layer Eye Icon Selection Fix -->
+          <!-- 01: Spiral Pick Whip Layer Linking -->
+          <article class="feature-card feature-card--featured feature-card--lead">
+          <!-- 01: Monochrome White UI Redesign -->
+          <article class="feature-card feature-card--featured">
+            <div class="stage" aria-hidden="true">
+              <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg">
+                <text x="30" y="37" fill="#A1A7B3" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10.5"
+                  font-weight="700" letter-spacing="0.06em">INTERFACE THEME</text>
+
+                <!-- Pink state (before) -->
+                <g class="anim-theme-pink">
+                  <rect x="262" y="23" width="68" height="20" rx="6" fill="#FFB6C1" />
+                  <text x="296" y="36.5" text-anchor="middle" fill="#0B0D11"
+                    font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">PINK UI</text>
+
+                  <rect x="30" y="54" width="300" height="166" rx="12" fill="#151820" stroke="#FFB6C1"
+                    stroke-opacity=".45" stroke-width="1.3" />
+                  <!-- Top editor toolbar -->
+                  <rect x="44" y="68" width="66" height="20" rx="6" fill="#FFB6C1" />
+                  <text x="77" y="81.5" text-anchor="middle" fill="#0B0D11"
+                    font-family="Helvetica Neue,Arial,sans-serif" font-size="10" font-weight="700">Export</text>
+                  <rect x="118" y="68" width="24" height="20" rx="6" fill="#232834" stroke="#FFB6C1"
+                    stroke-width="1.2" />
+                  <circle cx="130" cy="78" r="3.2" fill="#FFB6C1" />
+                  <rect x="148" y="68" width="24" height="20" rx="6" fill="#232834" />
+                  <circle cx="160" cy="78" r="3.2" fill="#9CA3AF" />
+
+                  <!-- Preview monitor -->
+                  <rect x="44" y="98" width="272" height="60" rx="8" fill="#171B24" stroke="#2D3341" stroke-width="1" />
+                  <rect x="142" y="114" width="76" height="28" rx="6" fill="#FFB6C1" fill-opacity=".22" stroke="#FFB6C1"
+                    stroke-width="1.6" />
+
+                  <!-- Timeline track + playhead -->
+                  <rect x="44" y="170" width="272" height="14" rx="5" fill="#FFB6C1" fill-opacity=".25" stroke="#FFB6C1"
+                    stroke-width="1.2" />
+                  <rect x="86" y="192" width="230" height="14" rx="5" fill="#232834" stroke="#3B4254" stroke-width="1" />
+                  <line x1="180" y1="164" x2="180" y2="212" stroke="#FFB6C1" stroke-width="2" />
+                  <circle cx="180" cy="164" r="4" fill="#FFB6C1" />
+                </g>
+
+                <!-- Monochrome white state (after) -->
+                <g class="anim-theme-white">
+                  <rect x="242" y="23" width="88" height="20" rx="6" fill="#FFFFFF" />
+                  <text x="286" y="36.5" text-anchor="middle" fill="#0B0D11"
+                    font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">WHITE UI</text>
+
+                  <rect x="30" y="54" width="300" height="166" rx="12" fill="#151820" stroke="#FFFFFF"
+                    stroke-opacity=".35" stroke-width="1.3" />
+                  <!-- Top editor toolbar -->
+                  <rect x="44" y="68" width="66" height="20" rx="6" fill="#FFFFFF" />
+                  <text x="77" y="81.5" text-anchor="middle" fill="#0B0D11"
+                    font-family="Helvetica Neue,Arial,sans-serif" font-size="10" font-weight="700">Export</text>
+                  <rect x="118" y="68" width="24" height="20" rx="6" fill="#232834" stroke="#FFFFFF"
+                    stroke-width="1.2" />
+                  <circle cx="130" cy="78" r="3.2" fill="#FFFFFF" />
+                  <rect x="148" y="68" width="24" height="20" rx="6" fill="#232834" />
+                  <circle cx="160" cy="78" r="3.2" fill="#A1A7B3" />
+
+                  <!-- Preview monitor -->
+                  <rect x="44" y="98" width="272" height="60" rx="8" fill="#171B24" stroke="#2D3341" stroke-width="1" />
+                  <rect x="142" y="114" width="76" height="28" rx="6" fill="#FFFFFF" fill-opacity=".14" stroke="#FFFFFF"
+                    stroke-width="1.6" />
+
+                  <!-- Timeline track + playhead -->
+                  <rect x="44" y="170" width="272" height="14" rx="5" fill="#FFFFFF" fill-opacity=".14" stroke="#FFFFFF"
+                    stroke-width="1.2" />
+                  <rect x="86" y="192" width="230" height="14" rx="5" fill="#232834" stroke="#3B4254" stroke-width="1" />
+                  <line x1="180" y1="164" x2="180" y2="212" stroke="#FFFFFF" stroke-width="2" />
+                  <circle cx="180" cy="164" r="4" fill="#FFFFFF" />
+                </g>
+              </svg>
             </div>
-            <p>Fixed Motion Blur so it only adjusts blur strength without distorting scale, rotation, 3D orientation, or other layer properties.</p>
-          </div>
-        </article>
-
-        <!-- 03: Layer Eye Icon Selection Fix -->
-        <article class="feature-card">
-          <div class="stage" aria-hidden="true">
-            <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg">
-              <text x="32" y="40" fill="#9CA3AF" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10.5" font-weight="700" letter-spacing="0.06em">TIMELINE LAYERS</text>
-              <text x="32" y="40" fill="#A1A7B3" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10.5" font-weight="700" letter-spacing="0.06em">TIMELINE LAYERS</text>
-
-              <!-- Row 1 -->
-              <rect x="30" y="56" width="300" height="46" rx="10" fill="#151820" stroke="#282D38" stroke-width="1.2" />
-              <rect x="42" y="67" width="30" height="24" rx="6" fill="#1E222C" />
-              <rect class="anim-sel-r1" x="42" y="67" width="30" height="24" rx="6" fill="none" stroke="#FFFFFF" stroke-width="1.8" />
-              <ellipse cx="57" cy="79" rx="7" ry="4.3" fill="none" stroke="#FFFFFF" stroke-width="1.4" />
-              <circle cx="57" cy="79" r="2" fill="#FFFFFF" />
-              <rect x="84" y="68" width="234" height="22" rx="6" fill="#232834" />
-              <rect class="anim-sel-r1" x="84" y="68" width="234" height="22" rx="6" fill="none" stroke="#FFFFFF" stroke-width="1.8" />
-              <text x="96" y="83" fill="#F3F4F6" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" font-weight="600">Title Text</text>
-
-              <!-- Row 2 -->
-              <rect x="30" y="114" width="300" height="46" rx="10" fill="#151820" stroke="#282D38" stroke-width="1.2" />
-              <rect x="42" y="125" width="30" height="24" rx="6" fill="#1E222C" />
-              <rect class="anim-sel-r2" x="42" y="125" width="30" height="24" rx="6" fill="none" stroke="#FFFFFF" stroke-width="1.8" />
-              <ellipse cx="57" cy="137" rx="7" ry="4.3" fill="none" stroke="#FFFFFF" stroke-width="1.4" />
-              <circle cx="57" cy="137" r="2" fill="#FFFFFF" />
-              <rect x="84" y="126" width="234" height="22" rx="6" fill="#232834" />
-              <rect class="anim-sel-r2" x="84" y="126" width="234" height="22" rx="6" fill="none" stroke="#FFFFFF" stroke-width="1.8" />
-              <text x="96" y="141" fill="#F3F4F6" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" font-weight="600">Camera 2</text>
-
-              <!-- Row 3 -->
-              <rect x="30" y="172" width="300" height="46" rx="10" fill="#151820" stroke="#282D38" stroke-width="1.2" />
-              <rect x="42" y="183" width="30" height="24" rx="6" fill="#1E222C" />
-              <rect class="anim-sel-r3" x="42" y="183" width="30" height="24" rx="6" fill="none" stroke="#FFFFFF" stroke-width="1.8" />
-              <ellipse cx="57" cy="195" rx="7" ry="4.3" fill="none" stroke="#FFFFFF" stroke-width="1.4" />
-              <circle cx="57" cy="195" r="2" fill="#FFFFFF" />
-              <rect x="84" y="184" width="234" height="22" rx="6" fill="#232834" />
-              <rect class="anim-sel-r3" x="84" y="184" width="234" height="22" rx="6" fill="none" stroke="#FFFFFF" stroke-width="1.8" />
-              <text x="96" y="199" fill="#F3F4F6" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" font-weight="600">Background</text>
-            </svg>
-          </div>
-          <div class="card-meta">
-            <div class="card-head">
-              <span class="card-num">01</span>
-              <span class="card-num">03</span>
-              <h3>Layer Selection Outline</h3>
+            <div class="card-meta">
+              <div class="card-head">
+                <span class="card-num">01</span>
+                <h3>Monochrome White Redesign</h3>
+              </div>
+              <p>Redesigned the interface from pink to monochrome white for a clean, neutral editing workspace.</p>
             </div>
-            <p>Fixed layer eye icon outlines so only the selected layer is highlighted.</p>
-          </div>
-        </article>
+          </article>
 
-        <!-- 02: Clean Camera Cut Motion Blur -->
-        <!-- 04: Clean Camera Cut Motion Blur -->
-        <article class="feature-card">
-          <div class="stage" aria-hidden="true">
-            <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg">
-              <!-- Preview frame -->
-              <rect x="40" y="22" width="280" height="104" rx="12" fill="#171B24" stroke="#2D3341" stroke-width="1.5" />
-              <line x1="180" y1="22" x2="180" y2="126" stroke="#232835" stroke-width="1" stroke-dasharray="4 4" />
-              <line x1="40" y1="74" x2="320" y2="74" stroke="#232835" stroke-width="1" stroke-dasharray="4 4" />
+          <!-- 02: Pure White Default Accent -->
+          <article class="feature-card feature-card--featured">
+            <div class="stage" aria-hidden="true">
+              <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg">
+                <text x="30" y="37" fill="#A1A7B3" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10.5"
+                  font-weight="700" letter-spacing="0.06em">DEFAULT ACCENT</text>
+                <text x="330" y="37" text-anchor="end" fill="#FFFFFF"
+                  font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10.5" font-weight="700">#FFFFFF</text>
 
-              <!-- Camera 2 state (angled) -->
-              <g class="anim-cut-cam2">
-                <rect x="118" y="48" width="68" height="44" rx="8" fill="#FFFFFF" transform="rotate(-10 152 70)" />
-                <text x="56" y="42" fill="#F59E0B" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10" font-weight="700">CAM 2</text>
-              </g>
-              <!-- Camera 3 state (clean, zero smear at cut) -->
-              <g class="anim-cut-cam3">
-                <rect x="146" y="52" width="68" height="44" rx="8" fill="#FFFFFF" />
-                <text x="56" y="42" fill="#FFFFFF" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10" font-weight="700">CAM 3 · CLEAN</text>
-              </g>
+                <!-- Primary white swatch card -->
+                <rect x="30" y="54" width="112" height="166" rx="12" fill="#151820" stroke="#2D3341" stroke-width="1.3" />
+                <rect x="40" y="64" width="92" height="92" rx="9" fill="#FFFFFF" />
+                <rect class="anim-def-ring" x="36" y="60" width="100" height="100" rx="11" fill="none" stroke="#FFFFFF"
+                  stroke-width="1.6" />
+                <text x="42" y="180" fill="#F3F4F6" font-family="Helvetica Neue,Arial,sans-serif" font-size="11.5"
+                  font-weight="700">Pure White</text>
+                <text x="42" y="198" fill="#A1A7B3" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5"
+                  font-weight="700">DEFAULT · #FFF</text>
 
-              <!-- Timeline camera cut -->
-              <rect x="40" y="152" width="139" height="24" rx="6" fill="#F59E0B" fill-opacity=".22" stroke="#F59E0B" stroke-width="1.5" />
-              <text x="52" y="168" fill="#FDE68A" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" font-weight="700">Camera 2</text>
+                <!-- Live UI controls using pure white default accent -->
+                <rect x="154" y="54" width="176" height="46" rx="10" fill="#151820" stroke="#282D38"
+                  stroke-width="1.2" />
+                <rect x="166" y="65" width="90" height="24" rx="7" fill="#FFFFFF" />
+                <text x="211" y="81" text-anchor="middle" fill="#0B0D11"
+                  font-family="Helvetica Neue,Arial,sans-serif" font-size="10.5" font-weight="700">Primary CTA</text>
+                <rect x="276" y="68" width="40" height="18" rx="9" fill="#FFFFFF" />
+                <circle cx="307" cy="77" r="6" fill="#0B0D11" />
 
-              <rect x="181" y="152" width="139" height="24" rx="6" fill="#FFFFFF" fill-opacity=".12" stroke="#FFFFFF" stroke-width="1.5" />
-              <text x="193" y="168" fill="#FFFFFF" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" font-weight="700">Camera 3</text>
+                <!-- Selection highlight bar -->
+                <rect x="154" y="112" width="176" height="46" rx="10" fill="#151820" stroke="#FFFFFF"
+                  stroke-width="1.5" />
+                <rect x="166" y="124" width="22" height="22" rx="6" fill="#232834" stroke="#FFFFFF" stroke-width="1.4" />
+                <circle cx="177" cy="135" r="3" fill="#FFFFFF" />
+                <text x="198" y="139" fill="#F3F4F6" font-family="Helvetica Neue,Arial,sans-serif" font-size="11"
+                  font-weight="600">Active Layer</text>
 
-              <rect x="181" y="186" width="139" height="20" rx="5" fill="#232834" stroke="#3B4254" stroke-width="1" />
-              <text x="193" y="200" fill="#D1D5DB" font-family="Helvetica Neue,Arial,sans-serif" font-size="10.5" font-weight="600">Text Layer</text>
-
-              <!-- Cut boundary marker -->
-              <line x1="180" y1="142" x2="180" y2="216" stroke="#6B7280" stroke-width="1.2" stroke-dasharray="3 3" />
-
-              <!-- Moving playhead -->
-              <g class="anim-cut-head">
-                <rect x="54" y="138" width="12" height="8" rx="4" fill="#FFFFFF" />
-                <line x1="60" y1="146" x2="60" y2="220" stroke="#FFFFFF" stroke-width="2" />
-              </g>
-            </svg>
-          </div>
-          <div class="card-meta">
-            <div class="card-head">
-              <span class="card-num">02</span>
-              <span class="card-num">04</span>
-              <h3>Clean Camera Cuts</h3>
+                <!-- Keyframe track bar -->
+                <rect x="154" y="170" width="176" height="50" rx="10" fill="#151820" stroke="#282D38"
+                  stroke-width="1.2" />
+                <line x1="170" y1="195" x2="314" y2="195" stroke="#363C4A" stroke-width="2" stroke-linecap="round" />
+                <polygon points="184,189 190,195 184,201 178,195" fill="#A1A7B3" />
+                <g class="anim-def-kf">
+                  <polygon points="222,187 230,195 222,203 214,195" fill="#FFFFFF" />
+                </g>
+                <polygon points="298,189 304,195 298,201 292,195" fill="#A1A7B3" />
+              </svg>
             </div>
-            <p>Fixed Motion Blur across camera cuts so layers stay clean without smearing from the previous camera.</p>
-          </div>
-        </article>
-
-        <!-- 03: Restored KeyflawX Tools & Smooth Playback -->
-        <!-- 05: Restored KeyflawX Tools & Smooth Playback -->
-        <article class="feature-card">
-          <div class="stage" aria-hidden="true">
-            <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg">
-              <!-- Preview monitor -->
-              <rect x="44" y="22" width="272" height="102" rx="12" fill="#171B24" stroke="#2D3341" stroke-width="1.5" />
-              <line x1="135" y1="22" x2="135" y2="124" stroke="#262B37" stroke-width="1" />
-              <line x1="225" y1="22" x2="225" y2="124" stroke="#262B37" stroke-width="1" />
-              <line x1="44" y1="73" x2="316" y2="73" stroke="#262B37" stroke-width="1" />
-              <g class="anim-preview-obj">
-                <polygon points="104,52 122,73 104,94 86,73" fill="#FFFFFF" />
-              </g>
-
-              <!-- Restored frame-step & playback bar -->
-              <rect class="anim-step-pulse" x="116" y="136" width="32" height="22" rx="6" fill="#171B24" stroke="#FFFFFF" stroke-width="1.3" />
-              <path d="M135 143 L129 147 L135 151 M127 143 L127 151" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              <circle cx="180" cy="147" r="13" fill="#FFFFFF" />
-              <polygon points="177,142 186,147 177,152" fill="#0B0D11" />
-              <rect class="anim-step-pulse" x="212" y="136" width="32" height="22" rx="6" fill="#171B24" stroke="#FFFFFF" stroke-width="1.3" />
-              <path d="M225 143 L231 147 L225 151 M233 143 L233 151" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-
-              <!-- Smooth timeline tracks -->
-              <rect x="44" y="172" width="272" height="16" rx="5" fill="#2A303E" stroke="#475066" stroke-width="1" />
-              <rect x="86" y="196" width="230" height="16" rx="5" fill="#232834" stroke="#3B4254" stroke-width="1" />
-              <g class="anim-playhead">
-                <line x1="58" y1="166" x2="58" y2="220" stroke="#FFFFFF" stroke-width="2" />
-                <circle cx="58" cy="166" r="4" fill="#FFFFFF" />
-              </g>
-            </svg>
-          </div>
-          <div class="card-meta">
-            <div class="card-head">
-              <span class="card-num">03</span>
-              <span class="card-num">05</span>
-              <h3>Restored Tools &amp; Smooth Playback</h3>
+            <div class="card-meta">
+              <div class="card-head">
+                <span class="card-num">02</span>
+                <h3>Pure White Default Color</h3>
+              </div>
+              <p>Set pure white (#FFFFFF) as the default accent color across buttons, selection outlines, and active controls.</p>
             </div>
-            <p>Restored full KeyflawX tools with smoother playback and rendering performance.</p>
-          </div>
-        </article>
-      </div>
-    </section>
+          </article>
 
-    <footer class="page-footer">
-      <p>KeyflawX for Android</p>
-    </footer>
-  </div>
-</main>
-<script>
-(function () {
-  var REPO = "Alluka-id/keyflaw-release";
-  var downloadBtn = document.getElementById("downloadBtn");
-  var downloadLabel = document.getElementById("downloadLabel");
-  var downloadSize = document.getElementById("downloadSize");
-  var versionLine = document.getElementById("versionLine");
-  var releaseDateLine = document.getElementById("releaseDateLine");
-  var telegramBtn = document.getElementById("telegramBtn");
-  var motionToggle = document.getElementById("motionToggle");
-  var motionToggleLabel = document.getElementById("motionToggleLabel");
-  var explicitApkUrl = "";
+          <!-- 03: Primary Color Customization in Settings -->
+          <article class="feature-card">
+            <div class="stage" aria-hidden="true">
+              <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="kfHueBar" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#FFFFFF" />
+                    <stop offset="22%" stop-color="#38BDF8" />
+                    <stop offset="46%" stop-color="#34D399" />
+                    <stop offset="70%" stop-color="#FBBF24" />
+                    <stop offset="90%" stop-color="#FB7185" />
+                    <stop offset="100%" stop-color="#A78BFA" />
+                  </linearGradient>
+                </defs>
 
-  if (motionToggle && motionToggleLabel) {
-    motionToggle.addEventListener("click", function () {
-      var paused = document.body.classList.toggle("motion-paused");
-      motionToggle.setAttribute("aria-pressed", paused ? "true" : "false");
-      motionToggleLabel.textContent = paused ? "Resume Previews" : "Pause Previews";
-    });
-  }
+                <text x="30" y="37" fill="#A1A7B3" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10.5"
+                  font-weight="700" letter-spacing="0.06em">SETTINGS · PRIMARY COLOR</text>
 
-  function setDirectDownload(url, fileName, bytes) {
-    if (!url) return;
-    downloadBtn.href = url;
-    if (fileName) downloadBtn.setAttribute("download", fileName);
-    if (typeof bytes === "number" && bytes > 0) {
-      downloadSize.textContent = "- " + (bytes / (1024 * 1024)).toFixed(1) + " MB";
-    }
-  }
+                <!-- Settings color sheet panel -->
+                <rect x="30" y="52" width="300" height="170" rx="12" fill="#151820" stroke="#282D38"
+                  stroke-width="1.2" />
 
-  fetch("./update.json?t=" + Date.now(), { cache: "no-store" })
-    .then(function (res) {
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      return res.json();
-    })
-    .then(function (cfg) {
-      if (!cfg || typeof cfg !== "object") return;
-      var ver = cfg.latest_version || cfg.minimum_version;
-      if (ver) {
-        versionLine.textContent = "Version " + ver;
-        downloadLabel.textContent = "Download APK v" + ver;
-        var defaultName = "KeyflawX-" + ver + "-universal.apk";
-        setDirectDownload("https://github.com/" + REPO + "/releases/latest/download/" + defaultName, defaultName);
-      }
-      if (cfg.release_date) {
-        releaseDateLine.textContent = "Release Date: " + cfg.release_date;
-      }
-      if (cfg.apk_url && /\.apk(\?|$)/i.test(cfg.apk_url)) {
-        explicitApkUrl = cfg.apk_url;
-        setDirectDownload(cfg.apk_url, cfg.apk_url.split("/").pop().split("?")[0]);
-      } else if (cfg.download_url && /\.apk(\?|$)/i.test(cfg.download_url)) {
-        explicitApkUrl = cfg.download_url;
-        setDirectDownload(cfg.download_url, cfg.download_url.split("/").pop().split("?")[0]);
-      }
-      if (cfg.telegram_url) {
-        telegramBtn.href = cfg.telegram_url;
-      }
-    })
-    .catch(function () {});
+                <!-- Live accent preview strip inside settings -->
+                <rect x="44" y="66" width="272" height="44" rx="9" fill="#1B1F29" stroke="#2D3341" stroke-width="1" />
+                <rect class="anim-accent-fill" x="56" y="76" width="84" height="24" rx="7" fill="#FFFFFF" />
+                <text x="98" y="92" text-anchor="middle" fill="#0B0D11"
+                  font-family="Helvetica Neue,Arial,sans-serif" font-size="10" font-weight="700">Apply</text>
+                <rect class="anim-accent-stroke" x="152" y="77" width="152" height="22" rx="6" fill="#232834"
+                  stroke="#FFFFFF" stroke-width="1.5" />
+                <text x="164" y="92" fill="#F3F4F6" font-family="Helvetica Neue,Arial,sans-serif" font-size="10.5"
+                  font-weight="600">Accent Preview</text>
 
-  fetch("https://api.github.com/repos/" + REPO + "/releases/latest", {
-    headers: { "Accept": "application/vnd.github+json" }
-  })
-    .then(function (res) {
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      return res.json();
-    })
-    .then(function (release) {
-      if (!release || !Array.isArray(release.assets)) return;
-      var apkAsset = null;
-      for (var i = 0; i < release.assets.length; i++) {
-        var a = release.assets[i];
-        if (a && typeof a.name === "string" && /\.apk$/i.test(a.name)) { apkAsset = a; break; }
+                <!-- HSV Hue bar -->
+                <rect x="44" y="128" width="272" height="14" rx="7" fill="url(#kfHueBar)" />
+                <g class="anim-hue-knob">
+                  <circle cx="58" cy="135" r="9" fill="#0B0D11" stroke="#FFFFFF" stroke-width="2.2" />
+                </g>
+
+                <!-- Preset color swatches matching KeyflawThemeColorDialog -->
+                <circle cx="64" cy="182" r="11" fill="#FFFFFF" />
+                <circle cx="106" cy="182" r="11" fill="#38BDF8" />
+                <circle cx="148" cy="182" r="11" fill="#34D399" />
+                <circle cx="190" cy="182" r="11" fill="#FBBF24" />
+                <circle cx="232" cy="182" r="11" fill="#FB7185" />
+                <circle cx="274" cy="182" r="11" fill="#A78BFA" />
+                <g class="anim-swatch-ring">
+                  <circle cx="64" cy="182" r="15" fill="none" stroke="#FFFFFF" stroke-width="2" />
+                </g>
+              </svg>
+            </div>
+            <div class="card-meta">
+              <div class="card-head">
+                <span class="card-num">03</span>
+                <h3>Primary Color Settings</h3>
+              </div>
+              <p>Customize the app accent color anytime in Settings using the HSV/HSB color picker or built-in presets.</p>
+            </div>
+          </article>
+
+          <!-- 04: Spiral Pick Whip Layer Linking -->
+          <article class="feature-card">
+            <div class="stage" aria-hidden="true">
+              <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <path id="kfSpiralGlyph"
+                    d="M 0.00 -0.40 L 0.21 -0.50 L 0.48 -0.49 L 0.77 -0.33 L 0.98 -0.02 L 1.05 0.41 L 0.92 0.87 L 0.58 1.29 L 0.05 1.55 L -0.59 1.59 L -1.25 1.36 L -1.80 0.85 L -2.13 0.11 L -2.15 -0.75 L -1.81 -1.61 L -1.14 -2.30 L -0.19 -2.70 L 0.89 -2.71 L 1.95 -2.28 L 2.80 -1.44 L 3.28 -0.29 L 3.28 1.02 L 2.76 2.28 L 1.76 3.28 L 0.40 3.85 L -1.12 3.85 L -2.59 3.25 L -3.75 2.10 L -4.41 0.54 L -4.43 -1.21 L -3.76 -2.88 L -2.46 -4.21 L -0.70 -4.97 L 1.27 -5.01 L 3.16 -4.27 L 4.66 -2.83 L 5.53 -0.88"
+                    fill="none" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" />
+                </defs>
+
+                <!-- Header bar -->
+                <text x="30" y="37" fill="#A1A7B3" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10.5"
+                  font-weight="700" letter-spacing="0.06em">LINK MODE · PICK WHIP</text>
+                <rect x="278" y="23" width="54" height="20" rx="6" fill="#FFFFFF" />
+                <text x="305" y="36.5" text-anchor="middle" fill="#0B0D11"
+                  font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">ACTIVE</text>
+
+                <!-- Parent bracket connector (Row 2 -> Row 1) -->
+                <g class="anim-whip-linked">
+                  <path d="M 27 137 L 17 137 L 17 79 L 27 79" fill="none" stroke="#FFFFFF" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="27" cy="79" r="2.6" fill="#FFFFFF" />
+                </g>
+
+                <!-- Row 1: Camera Rig (Target parent) -->
+                <rect x="30" y="56" width="302" height="46" rx="10" fill="#151820" stroke="#282D38"
+                  stroke-width="1.2" />
+                <rect class="anim-whip-target" x="30" y="56" width="302" height="46" rx="10" fill="#FFFFFF"
+                  fill-opacity=".10" stroke="#FFFFFF" stroke-width="1.7" />
+                <rect x="40" y="67" width="26" height="24" rx="6" fill="#1E222C" />
+                <ellipse cx="53" cy="79" rx="6.5" ry="4" fill="none" stroke="#D1D5DB" stroke-width="1.35" />
+                <circle cx="53" cy="79" r="1.8" fill="#D1D5DB" />
+                <rect x="72" y="67" width="24" height="24" rx="6" fill="#141416" stroke="#56565E" stroke-width="1.1" />
+                <g transform="translate(84 79)" stroke="#D1D5DB">
+                  <use href="#kfSpiralGlyph" />
+                </g>
+                <rect x="104" y="68" width="218" height="22" rx="6" fill="#232834" />
+                <text x="114" y="83" fill="#F3F4F6" font-family="Helvetica Neue,Arial,sans-serif" font-size="11"
+                  font-weight="600">Camera Rig</text>
+
+                <!-- Row 2: Title Text (Child layer linked via spiral) -->
+                <rect x="30" y="114" width="302" height="46" rx="10" fill="#151820" stroke="#282D38"
+                  stroke-width="1.2" />
+                <rect x="40" y="125" width="26" height="24" rx="6" fill="#1E222C" />
+                <ellipse cx="53" cy="137" rx="6.5" ry="4" fill="none" stroke="#FFFFFF" stroke-width="1.35" />
+                <circle cx="53" cy="137" r="1.8" fill="#FFFFFF" />
+                <rect class="anim-whip-src" x="72" y="125" width="24" height="24" rx="6" fill="#242936" stroke="#FFFFFF"
+                  stroke-width="1.5" />
+                <g transform="translate(84 137)" stroke="#FFFFFF">
+                  <use href="#kfSpiralGlyph" />
+                </g>
+                <rect x="104" y="126" width="218" height="22" rx="6" fill="#232834" />
+                <text x="114" y="141" fill="#F3F4F6" font-family="Helvetica Neue,Arial,sans-serif" font-size="11"
+                  font-weight="600">Title Text</text>
+                <!-- Linked parent badge -->
+                <g class="anim-whip-linked">
+                  <rect x="234" y="128" width="84" height="18" rx="5" fill="#141416" stroke="#D1D5DB"
+                    stroke-width="1" />
+                  <text x="276" y="140.5" text-anchor="middle" fill="#FFFFFF"
+                    font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">&#x21B3;
+                    Camera</text>
+                    font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">&#x21B3; Camera</text>
+                </g>
+
+                <!-- Row 3: Background (Unlinked) -->
+                <rect x="30" y="172" width="302" height="46" rx="10" fill="#151820" stroke="#282D38"
+                  stroke-width="1.2" />
+                <rect x="40" y="183" width="26" height="24" rx="6" fill="#1E222C" />
+                <ellipse cx="53" cy="195" rx="6.5" ry="4" fill="none" stroke="#D1D5DB" stroke-width="1.35" />
+                <circle cx="53" cy="195" r="1.8" fill="#D1D5DB" />
+                <rect x="72" y="183" width="24" height="24" rx="6" fill="#141416" stroke="#56565E" stroke-width="1.1" />
+                <g transform="translate(84 195)" stroke="#A1A7B3">
+                  <use href="#kfSpiralGlyph" />
+                </g>
+                <rect x="104" y="184" width="218" height="22" rx="6" fill="#232834" />
+                <text x="114" y="199" fill="#D1D5DB" font-family="Helvetica Neue,Arial,sans-serif" font-size="11"
+                  font-weight="600">Background</text>
+
+                <!-- Pick whip drag rope -->
+                <path class="anim-whip-rope" d="M 84 137 C 138 134, 148 82, 198 79" fill="none" stroke="#0B0D11"
+                  stroke-width="4.6" stroke-linecap="round" />
+                <path class="anim-whip-rope" d="M 84 137 C 138 134, 148 82, 198 79" fill="none" stroke="#FFFFFF"
+                  stroke-width="2.2" stroke-linecap="round" />
+                <circle class="anim-whip-target" cx="198" cy="79" r="5" fill="#0B0D11" stroke="#FFFFFF"
+                  stroke-width="2" />
+
+                <!-- Floating status pill -->
+                <g class="anim-whip-pill">
+                  <rect x="176" y="42" width="144" height="24" rx="12" fill="#141418" stroke="#FFFFFF"
+                    stroke-width="1.2" />
+                  <circle cx="189" cy="54" r="3" fill="#FFFFFF" />
+                  <text x="198" y="57.5" fill="#FFFFFF" font-family="Helvetica Neue,Arial,sans-serif" font-size="10"
+                    font-weight="700">Title Text &#x2192; Camera Rig</text>
+                </g>
+              </svg>
+            </div>
+            <div class="card-meta">
+              <div class="card-head">
+                <span class="card-num">01</span>
+                <span class="card-num">04</span>
+                <h3>Spiral Pick Whip Layer Linking</h3>
+              </div>
+              <p>Replaced layer linking with an interactive spiral pick whip next to each layer's eye icon when link
+                mode is active. Drag onto any layer to parent, or tap to unlink.</p>
+              <p>Replaced layer linking with an interactive spiral pick whip next to each layer's eye icon when link mode is active. Drag onto any layer to parent, or tap to unlink.</p>
+            </div>
+          </article>
+
+          <!-- 02: Motion Blur Fix -->
+          <article class="feature-card feature-card--featured">
+          <!-- 05: Motion Blur Fix -->
+          <article class="feature-card">
+            <div class="stage" aria-hidden="true">
+              <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg">
+                <!-- Preview frame -->
+                <rect x="30" y="20" width="300" height="114" rx="12" fill="#171B24" stroke="#2D3341"
+                  stroke-width="1.5" />
+                <line x1="180" y1="20" x2="180" y2="134" stroke="#232835" stroke-width="1" stroke-dasharray="4 4" />
+                <line x1="30" y1="77" x2="330" y2="77" stroke="#232835" stroke-width="1" stroke-dasharray="4 4" />
+                <text x="44" y="39" fill="#A1A7B3" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10"
+                  font-weight="700">SHUTTER 180&#x00B0; · BLUR ONLY</text>
+
+                <!-- Directional motion blur trails (uniform scale, zero distortion) -->
+                <rect class="anim-mb-t3" x="62" y="55" width="54" height="44" rx="9" fill="#FFFFFF" />
+                <rect class="anim-mb-t2" x="62" y="55" width="54" height="44" rx="9" fill="#FFFFFF" />
+                <rect class="anim-mb-t1" x="62" y="55" width="54" height="44" rx="9" fill="#FFFFFF" />
+                <g class="anim-mb-main">
+                  <rect x="62" y="55" width="54" height="44" rx="9" fill="#FFFFFF" />
+                  <line x1="77" y1="71" x2="101" y2="71" stroke="#0B0D11" stroke-width="2" stroke-linecap="round" />
+                  <line x1="77" y1="81" x2="93" y2="81" stroke="#525866" stroke-width="2" stroke-linecap="round" />
+                </g>
+
+                <!-- Shutter strength ruler strip -->
+                <rect x="30" y="148" width="300" height="32" rx="8" fill="#151820" stroke="#282D38"
+                  stroke-width="1.2" />
+                <text x="42" y="168" fill="#D1D5DB" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10"
+                  font-weight="700">BLUR</text>
+                <line x1="92" y1="164" x2="270" y2="164" stroke="#363C4A" stroke-width="2" stroke-linecap="round" />
+                <line x1="112" y1="158" x2="112" y2="170" stroke="#525866" stroke-width="1.2" />
+                <line x1="148" y1="156" x2="148" y2="172" stroke="#6B7280" stroke-width="1.2" />
+                <line x1="184" y1="156" x2="184" y2="172" stroke="#6B7280" stroke-width="1.2" />
+                <line x1="220" y1="156" x2="220" y2="172" stroke="#6B7280" stroke-width="1.2" />
+                <line x1="256" y1="158" x2="256" y2="170" stroke="#525866" stroke-width="1.2" />
+                <g class="anim-mb-knob">
+                  <rect x="171" y="154" width="12" height="20" rx="4" fill="#FFFFFF" />
+                </g>
+                <text x="318" y="168" text-anchor="end" fill="#FFFFFF"
+                  font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10.5"
+                  font-weight="700">180&#x00B0;</text>
+
+                <!-- Unaffected layer properties row -->
+                <rect x="30" y="192" width="94" height="28" rx="7" fill="#151820" stroke="#2D3341" stroke-width="1.2" />
+                <text x="77" y="210" text-anchor="middle" fill="#D1D5DB"
+                  font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">SCALE
+                  100%</text>
+                  font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">SCALE 100%</text>
+
+                <rect x="133" y="192" width="94" height="28" rx="7" fill="#151820" stroke="#2D3341"
+                  stroke-width="1.2" />
+                <text x="180" y="210" text-anchor="middle" fill="#D1D5DB"
+                  font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">ROT
+                  0&#x00B0;</text>
+                  font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">ROT 0&#x00B0;</text>
+
+                <rect x="236" y="192" width="94" height="28" rx="7" fill="#151820" stroke="#2D3341"
+                  stroke-width="1.2" />
+                <text x="283" y="210" text-anchor="middle" fill="#D1D5DB"
+                  font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">ALPHA
+                  100%</text>
+                  font-family="ui-monospace,Menlo,Consolas,monospace" font-size="9.5" font-weight="700">ALPHA 100%</text>
+              </svg>
+            </div>
+            <div class="card-meta">
+              <div class="card-head">
+                <span class="card-num">02</span>
+                <span class="card-num">05</span>
+                <h3>Motion Blur Fix</h3>
+              </div>
+              <p>Fixed Motion Blur so it only adjusts blur strength without distorting scale, rotation, 3D orientation,
+                or other layer properties.</p>
+              <p>Fixed Motion Blur so it only adjusts blur strength without distorting scale, rotation, 3D orientation, or other layer properties.</p>
+            </div>
+          </article>
+
+          <!-- 03: Layer Eye Icon Selection Fix -->
+          <!-- 06: Layer Eye Icon Selection Fix -->
+          <article class="feature-card">
+            <div class="stage" aria-hidden="true">
+              <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg">
+                <text x="32" y="40" fill="#9CA3AF" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10.5"
+                  font-weight="700" letter-spacing="0.06em">TIMELINE LAYERS</text>
+                <text x="32" y="40" fill="#A1A7B3" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10.5"
+                  font-weight="700" letter-spacing="0.06em">TIMELINE LAYERS</text>
+
+                <!-- Row 1 -->
+                <rect x="30" y="56" width="300" height="46" rx="10" fill="#151820" stroke="#282D38"
+                  stroke-width="1.2" />
+                <rect x="42" y="67" width="30" height="24" rx="6" fill="#1E222C" />
+                <rect class="anim-sel-r1" x="42" y="67" width="30" height="24" rx="6" fill="none" stroke="#FFFFFF"
+                  stroke-width="1.8" />
+                <ellipse cx="57" cy="79" rx="7" ry="4.3" fill="none" stroke="#FFFFFF" stroke-width="1.4" />
+                <circle cx="57" cy="79" r="2" fill="#FFFFFF" />
+                <rect x="84" y="68" width="234" height="22" rx="6" fill="#232834" />
+                <rect class="anim-sel-r1" x="84" y="68" width="234" height="22" rx="6" fill="none" stroke="#FFFFFF"
+                  stroke-width="1.8" />
+                <text x="96" y="83" fill="#F3F4F6" font-family="Helvetica Neue,Arial,sans-serif" font-size="11"
+                  font-weight="600">Title Text</text>
+
+                <!-- Row 2 -->
+                <rect x="30" y="114" width="300" height="46" rx="10" fill="#151820" stroke="#282D38"
+                  stroke-width="1.2" />
+                <rect x="42" y="125" width="30" height="24" rx="6" fill="#1E222C" />
+                <rect class="anim-sel-r2" x="42" y="125" width="30" height="24" rx="6" fill="none" stroke="#FFFFFF"
+                  stroke-width="1.8" />
+                <ellipse cx="57" cy="137" rx="7" ry="4.3" fill="none" stroke="#FFFFFF" stroke-width="1.4" />
+                <circle cx="57" cy="137" r="2" fill="#FFFFFF" />
+                <rect x="84" y="126" width="234" height="22" rx="6" fill="#232834" />
+                <rect class="anim-sel-r2" x="84" y="126" width="234" height="22" rx="6" fill="none" stroke="#FFFFFF"
+                  stroke-width="1.8" />
+                <text x="96" y="141" fill="#F3F4F6" font-family="Helvetica Neue,Arial,sans-serif" font-size="11"
+                  font-weight="600">Camera 2</text>
+
+                <!-- Row 3 -->
+                <rect x="30" y="172" width="300" height="46" rx="10" fill="#151820" stroke="#282D38"
+                  stroke-width="1.2" />
+                <rect x="42" y="183" width="30" height="24" rx="6" fill="#1E222C" />
+                <rect class="anim-sel-r3" x="42" y="183" width="30" height="24" rx="6" fill="none" stroke="#FFFFFF"
+                  stroke-width="1.8" />
+                <ellipse cx="57" cy="195" rx="7" ry="4.3" fill="none" stroke="#FFFFFF" stroke-width="1.4" />
+                <circle cx="57" cy="195" r="2" fill="#FFFFFF" />
+                <rect x="84" y="184" width="234" height="22" rx="6" fill="#232834" />
+                <rect class="anim-sel-r3" x="84" y="184" width="234" height="22" rx="6" fill="none" stroke="#FFFFFF"
+                  stroke-width="1.8" />
+                <text x="96" y="199" fill="#F3F4F6" font-family="Helvetica Neue,Arial,sans-serif" font-size="11"
+                  font-weight="600">Background</text>
+              </svg>
+            </div>
+            <div class="card-meta">
+              <div class="card-head">
+                <span class="card-num">01</span>
+                <span class="card-num">03</span>
+                <span class="card-num">06</span>
+                <h3>Layer Selection Outline</h3>
+              </div>
+              <p>Fixed layer eye icon outlines so only the selected layer is highlighted.</p>
+            </div>
+          </article>
+
+          <!-- 02: Clean Camera Cut Motion Blur -->
+          <!-- 04: Clean Camera Cut Motion Blur -->
+          <!-- 07: Clean Camera Cut Motion Blur -->
+          <article class="feature-card">
+            <div class="stage" aria-hidden="true">
+              <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg">
+                <!-- Preview frame -->
+                <rect x="40" y="22" width="280" height="104" rx="12" fill="#171B24" stroke="#2D3341"
+                  stroke-width="1.5" />
+                <line x1="180" y1="22" x2="180" y2="126" stroke="#232835" stroke-width="1" stroke-dasharray="4 4" />
+                <line x1="40" y1="74" x2="320" y2="74" stroke="#232835" stroke-width="1" stroke-dasharray="4 4" />
+
+                <!-- Camera 2 state (angled) -->
+                <g class="anim-cut-cam2">
+                  <rect x="118" y="48" width="68" height="44" rx="8" fill="#FFFFFF" transform="rotate(-10 152 70)" />
+                  <text x="56" y="42" fill="#F59E0B" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10"
+                    font-weight="700">CAM 2</text>
+                </g>
+                <!-- Camera 3 state (clean, zero smear at cut) -->
+                <g class="anim-cut-cam3">
+                  <rect x="146" y="52" width="68" height="44" rx="8" fill="#FFFFFF" />
+                  <text x="56" y="42" fill="#FFFFFF" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="10"
+                    font-weight="700">CAM 3 · CLEAN</text>
+                </g>
+
+                <!-- Timeline camera cut -->
+                <rect x="40" y="152" width="139" height="24" rx="6" fill="#F59E0B" fill-opacity=".22" stroke="#F59E0B"
+                  stroke-width="1.5" />
+                <text x="52" y="168" fill="#FDE68A" font-family="Helvetica Neue,Arial,sans-serif" font-size="11"
+                  font-weight="700">Camera 2</text>
+
+                <rect x="181" y="152" width="139" height="24" rx="6" fill="#FFFFFF" fill-opacity=".12" stroke="#FFFFFF"
+                  stroke-width="1.5" />
+                <text x="193" y="168" fill="#FFFFFF" font-family="Helvetica Neue,Arial,sans-serif" font-size="11"
+                  font-weight="700">Camera 3</text>
+
+                <rect x="181" y="186" width="139" height="20" rx="5" fill="#232834" stroke="#3B4254" stroke-width="1" />
+                <text x="193" y="200" fill="#D1D5DB" font-family="Helvetica Neue,Arial,sans-serif" font-size="10.5"
+                  font-weight="600">Text Layer</text>
+
+                <!-- Cut boundary marker -->
+                <line x1="180" y1="142" x2="180" y2="216" stroke="#6B7280" stroke-width="1.2" stroke-dasharray="3 3" />
+
+                <!-- Moving playhead -->
+                <g class="anim-cut-head">
+                  <rect x="54" y="138" width="12" height="8" rx="4" fill="#FFFFFF" />
+                  <line x1="60" y1="146" x2="60" y2="220" stroke="#FFFFFF" stroke-width="2" />
+                </g>
+              </svg>
+            </div>
+            <div class="card-meta">
+              <div class="card-head">
+                <span class="card-num">02</span>
+                <span class="card-num">04</span>
+                <span class="card-num">07</span>
+                <h3>Clean Camera Cuts</h3>
+              </div>
+              <p>Fixed Motion Blur across camera cuts so layers stay clean without smearing from the previous camera.
+              </p>
+              <p>Fixed Motion Blur across camera cuts so layers stay clean without smearing from the previous camera.</p>
+            </div>
+          </article>
+
+          <!-- 03: Restored KeyflawX Tools & Smooth Playback -->
+          <!-- 05: Restored KeyflawX Tools & Smooth Playback -->
+          <!-- 08: Restored KeyflawX Tools & Smooth Playback -->
+          <article class="feature-card">
+            <div class="stage" aria-hidden="true">
+              <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg">
+                <!-- Preview monitor -->
+                <rect x="44" y="22" width="272" height="102" rx="12" fill="#171B24" stroke="#2D3341"
+                  stroke-width="1.5" />
+                <line x1="135" y1="22" x2="135" y2="124" stroke="#262B37" stroke-width="1" />
+                <line x1="225" y1="22" x2="225" y2="124" stroke="#262B37" stroke-width="1" />
+                <line x1="44" y1="73" x2="316" y2="73" stroke="#262B37" stroke-width="1" />
+                <g class="anim-preview-obj">
+                  <polygon points="104,52 122,73 104,94 86,73" fill="#FFFFFF" />
+                </g>
+
+                <!-- Restored frame-step & playback bar -->
+                <rect class="anim-step-pulse" x="116" y="136" width="32" height="22" rx="6" fill="#171B24"
+                  stroke="#FFFFFF" stroke-width="1.3" />
+                <path d="M135 143 L129 147 L135 151 M127 143 L127 151" fill="none" stroke="#FFFFFF" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="180" cy="147" r="13" fill="#FFFFFF" />
+                <polygon points="177,142 186,147 177,152" fill="#0B0D11" />
+                <rect class="anim-step-pulse" x="212" y="136" width="32" height="22" rx="6" fill="#171B24"
+                  stroke="#FFFFFF" stroke-width="1.3" />
+                <path d="M225 143 L231 147 L225 151 M233 143 L233 151" fill="none" stroke="#FFFFFF" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" />
+
+                <!-- Smooth timeline tracks -->
+                <rect x="44" y="172" width="272" height="16" rx="5" fill="#2A303E" stroke="#475066" stroke-width="1" />
+                <rect x="86" y="196" width="230" height="16" rx="5" fill="#232834" stroke="#3B4254" stroke-width="1" />
+                <g class="anim-playhead">
+                  <line x1="58" y1="166" x2="58" y2="220" stroke="#FFFFFF" stroke-width="2" />
+                  <circle cx="58" cy="166" r="4" fill="#FFFFFF" />
+                </g>
+              </svg>
+            </div>
+            <div class="card-meta">
+              <div class="card-head">
+                <span class="card-num">03</span>
+                <span class="card-num">05</span>
+                <span class="card-num">08</span>
+                <h3>Restored Tools &amp; Smooth Playback</h3>
+              </div>
+              <p>Restored full KeyflawX tools with smoother playback and rendering performance.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <p>KeyflawX for Android</p>
+      </footer>
+    </div>
+  </main>
+  <script>
+    (function () {
+      var REPO = "Alluka-id/keyflaw-release";
+      var downloadBtn = document.getElementById("downloadBtn");
+      var downloadLabel = document.getElementById("downloadLabel");
+      var downloadSize = document.getElementById("downloadSize");
+      var versionLine = document.getElementById("versionLine");
+      var releaseDateLine = document.getElementById("releaseDateLine");
+      var telegramBtn = document.getElementById("telegramBtn");
+      var motionToggle = document.getElementById("motionToggle");
+      var motionToggleLabel = document.getElementById("motionToggleLabel");
+      var explicitApkUrl = "";
+
+      if (motionToggle && motionToggleLabel) {
+        motionToggle.addEventListener("click", function () {
+          var paused = document.body.classList.toggle("motion-paused");
+          motionToggle.setAttribute("aria-pressed", paused ? "true" : "false");
+          motionToggleLabel.textContent = paused ? "Resume Previews" : "Pause Previews";
+        });
       }
-      if (apkAsset && apkAsset.browser_download_url) {
-        if (!explicitApkUrl) {
-          setDirectDownload(apkAsset.browser_download_url, apkAsset.name, apkAsset.size);
-        } else if (typeof apkAsset.size === "number" && apkAsset.size > 0) {
-          downloadSize.textContent = "- " + (apkAsset.size / (1024 * 1024)).toFixed(1) + " MB";
+
+      function setDirectDownload(url, fileName, bytes) {
+        if (!url) return;
+        downloadBtn.href = url;
+        if (fileName) downloadBtn.setAttribute("download", fileName);
+        if (typeof bytes === "number" && bytes > 0) {
+          downloadSize.textContent = "- " + (bytes / (1024 * 1024)).toFixed(1) + " MB";
         }
       }
-    })
-    .catch(function () {});
-})();
-</script>
+
+      fetch("./update.json?t=" + Date.now(), { cache: "no-store" })
+        .then(function (res) {
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          return res.json();
+        })
+        .then(function (cfg) {
+          if (!cfg || typeof cfg !== "object") return;
+          var ver = cfg.latest_version || cfg.minimum_version;
+          if (ver) {
+            versionLine.textContent = "Version " + ver;
+            downloadLabel.textContent = "Download APK v" + ver;
+            var defaultName = "KeyflawX-" + ver + "-universal.apk";
+            setDirectDownload("https://github.com/" + REPO + "/releases/latest/download/" + defaultName, defaultName);
+          }
+          if (cfg.release_date) {
+            releaseDateLine.textContent = "Release Date: " + cfg.release_date;
+          }
+          if (cfg.apk_url && /\.apk(\?|$)/i.test(cfg.apk_url)) {
+            explicitApkUrl = cfg.apk_url;
+            setDirectDownload(cfg.apk_url, cfg.apk_url.split("/").pop().split("?")[0]);
+          } else if (cfg.download_url && /\.apk(\?|$)/i.test(cfg.download_url)) {
+            explicitApkUrl = cfg.download_url;
+            setDirectDownload(cfg.download_url, cfg.download_url.split("/").pop().split("?")[0]);
+          }
+          if (cfg.telegram_url) {
+            telegramBtn.href = cfg.telegram_url;
+          }
+        })
+        .catch(function () { });
+
+      fetch("https://api.github.com/repos/" + REPO + "/releases/latest", {
+        headers: { "Accept": "application/vnd.github+json" }
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          return res.json();
+        })
+        .then(function (release) {
+          if (!release || !Array.isArray(release.assets)) return;
+          var apkAsset = null;
+          for (var i = 0; i < release.assets.length; i++) {
+            var a = release.assets[i];
+            if (a && typeof a.name === "string" && /\.apk$/i.test(a.name)) { apkAsset = a; break; }
+          }
+          if (apkAsset && apkAsset.browser_download_url) {
+            if (!explicitApkUrl) {
+              setDirectDownload(apkAsset.browser_download_url, apkAsset.name, apkAsset.size);
+            } else if (typeof apkAsset.size === "number" && apkAsset.size > 0) {
+              downloadSize.textContent = "- " + (apkAsset.size / (1024 * 1024)).toFixed(1) + " MB";
+            }
+          }
+        })
+        .catch(function () { });
+    })();
+  </script>
 </body>
+
 </html>
